@@ -29,7 +29,7 @@ const lineVariants = {
     transition: {
       duration: 0.68,
       delay: 0.08 + i * 0.11,
-      ease: [0.33, 1, 0.68, 1],
+      ease: [0.33, 1, 0.68, 1] as const,
     },
   }),
 };
@@ -39,7 +39,7 @@ const videoVariants = {
   visible: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.75, delay: 0.5, ease: [0.33, 1, 0.68, 1] },
+    transition: { duration: 0.75, delay: 0.5, ease: [0.33, 1, 0.68, 1] as const },
   },
 };
 

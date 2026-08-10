@@ -132,7 +132,7 @@ export default function Navbar() {
                       transition={{
                         duration: 0.55,
                         delay: menuOpen ? 0.05 + i * 0.08 : 0,
-                        ease: [0.33, 1, 0.68, 1],
+                        ease: [0.33, 1, 0.68, 1] as const,
                       }}
                     >
                       <Link

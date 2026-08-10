@@ -180,7 +180,7 @@ export default function SelectedWorkSection() {
               animate={isInView ? { y: "0%" } : { y: "110%" }}
               transition={{
                 duration: 0.7,
-                ease: [0.33, 1, 0.68, 1],
+                ease: [0.33, 1, 0.68, 1] as const,
                 delay: 0.05,
               }}
               className="text-[clamp(32px,5vw,56px)] font-medium uppercase tracking-[-0.01em] leading-none text-black m-0"
@@ -198,7 +198,7 @@ export default function SelectedWorkSection() {
               animate={isInView ? { y: "0%" } : { y: "110%" }}
               transition={{
                 duration: 0.65,
-                ease: [0.33, 1, 0.68, 1],
+                ease: [0.33, 1, 0.68, 1] as const,
                 delay: 0.13,
               }}
               className="text-[clamp(15px,1.4vw,18px)] font-normal leading-[1.65] text-black/55 m-0 max-w-125"
