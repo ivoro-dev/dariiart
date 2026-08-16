@@ -3,19 +3,21 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navLinks = [
-  { label: "Home",    href: "/",        hoverColor: "#10CC6B" },
-  { label: "About",   href: "/about",   hoverColor: "#CCA42B" },
-  { label: "Work",    href: "/work",    hoverColor: "#3087FF" },
-  { label: "Contact", href: "/contact", hoverColor: "#CC3FA4" },
+  { label: "Home",    href: "/",        hoverColor: "#10CC6B", hoverBg: "#3D2323" },
+  { label: "Work",    href: "/work",    hoverColor: "#3087FF", hoverBg: "#291047" },
+  { label: "About",   href: "/about",   hoverColor: "#CCA42B", hoverBg: "#163008" },
+  { label: "Contact", href: "/contact", hoverColor: "#CC3FA4", hoverBg: "#032B45" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -58,18 +60,26 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden md:flex items-center gap-10 list-none m-0 p-0">
-            {navLinks.map(({ label, href, hoverColor }) => (
-              <li key={label}>
-                <Link
-                  href={href}
-                  className="nav-link text-base font-medium tracking-[0.02em] text-black no-underline relative pb-0.5"
-                  style={{ ["--link-accent" as string]: hoverColor } as React.CSSProperties}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
+          <ul className="hidden md:flex items-center gap-1 list-none m-0 p-0">
+            {navLinks.map(({ label, href, hoverColor, hoverBg }) => {
+              const isActive = pathname === href;
+              return (
+                <li key={label}>
+                  <Link
+                    href={href}
+                    className={`nav-link-pill text-[15px] font-bold tracking-tight no-underline rounded-md px-2.5 py-1 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] inline-flex items-center justify-center ${
+                      isActive ? "is-active" : ""
+                    }`}
+                    style={{
+                      ["--hover-color" as string]: hoverColor,
+                      ["--hover-bg" as string]: hoverBg,
+                    } as React.CSSProperties}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Hamburger — mobile only */}
@@ -95,7 +105,7 @@ export default function Navbar() {
                   key="open"
                   initial={{ rotate: 45, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -45, opacity: 0 }}
+                  exit={{ rotate: 45, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                   className="flex"
                 >
@@ -118,13 +128,14 @@ export default function Navbar() {
             transition={{ duration: 0.25, ease: "easeOut" }}
             className="fixed top-[72px] left-0 right-0 bottom-0 z-[99] bg-white flex flex-col justify-center px-8"
           >
-            <ul className="list-none m-0 p-0 flex flex-col">
-              {navLinks.map(({ label, href, hoverColor }, i) => (
-                <li
-                  key={label}
-                  className="border-b border-black/[0.08] overflow-hidden"
-                >
-                  <div className="overflow-hidden pb-1">
+            <ul className="list-none m-0 p-0 flex flex-col gap-2">
+              {navLinks.map(({ label, href, hoverColor, hoverBg }, i) => {
+                const isActive = pathname === href;
+                return (
+                  <li
+                    key={label}
+                    className="overflow-hidden"
+                  >
                     <motion.div
                       initial={{ y: "100%" }}
                       animate={{ y: "0%" }}
@@ -138,46 +149,50 @@ export default function Navbar() {
                       <Link
                         href={href}
                         onClick={closeMenu}
-                        className="block py-5 text-[clamp(36px,10vw,56px)] font-extrabold tracking-[-0.02em] leading-[1.1] text-black no-underline text-left transition-colors duration-[250ms]"
-                        style={{ ["--link-accent" as string]: hoverColor } as React.CSSProperties}
-                        onMouseEnter={(e) => {
-                          (e.currentTarget as HTMLAnchorElement).style.color = hoverColor;
-                        }}
-                        onMouseLeave={(e) => {
-                          (e.currentTarget as HTMLAnchorElement).style.color = "#000";
-                        }}
+                        className={`nav-link-pill-mobile block py-1.5 px-3 rounded-lg text-[clamp(24px,6vw,36px)] font-extrabold tracking-tight no-underline text-left transition-all duration-300 ${
+                          isActive ? "is-active" : ""
+                        }`}
+                        style={{
+                          ["--hover-color" as string]: hoverColor,
+                          ["--hover-bg" as string]: hoverBg,
+                        } as React.CSSProperties}
                       >
                         {label}
                       </Link>
                     </motion.div>
-                  </div>
-                </li>
-              ))}
+                  </li>
+                );
+              })}
             </ul>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Minimal style tag — only for ::after pseudo-element (can't be done in Tailwind with dynamic CSS vars) */}
+      {/* Dynamic CSS styles for pill hover state */}
       <style>{`
-        .nav-link {
-          transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        .nav-link-pill {
+          color: #000000;
+          background-color: transparent;
+          transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                      color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .nav-link:hover {
-          color: var(--link-accent);
+        .nav-link-pill:hover,
+        .nav-link-pill.is-active {
+          background-color: var(--hover-bg) !important;
+          color: var(--hover-color) !important;
         }
-        .nav-link::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 0;
-          height: 1px;
-          background-color: var(--link-accent);
-          transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        .nav-link-pill-mobile {
+          color: #000000;
+          background-color: transparent;
+          transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                      color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .nav-link:hover::after {
-          width: 100%;
+        .nav-link-pill-mobile:hover,
+        .nav-link-pill-mobile.is-active {
+          background-color: var(--hover-bg) !important;
+          color: var(--hover-color) !important;
         }
       `}</style>
     </>

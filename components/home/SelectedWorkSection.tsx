@@ -45,7 +45,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <div
       ref={cardRef}
-      className={`flex flex-col md:flex-row items-center gap-10 md:gap-20 w-full ${
+      className={`flex flex-col md:flex-row items-start gap-10 md:gap-20 w-full ${
         !isEven ? "md:flex-row-reverse" : ""
       }`}
     >
@@ -88,11 +88,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.2 }}
         className="w-full md:w-[60%] flex flex-col items-start"
       >
-        <h3 className="text-[clamp(28px,4vw,48px)] font-bold text-black uppercase leading-none tracking-[-0.02em] mb-4 md:mb-6">
+        <h3 className="text-[clamp(28px,4vw,48px)] font-bold text-black uppercase leading-none tracking-[-0.02em] mb-4 ">
           {project.title}
         </h3>
         
-        <p className="text-[clamp(16px,1.5vw,20px)] font-normal leading-[1.5] text-black/80 max-w-[600px] mb-8 md:mb-10">
+        <p className="text-[clamp(16px,1.5vw,20px)] font-normal leading-[1.5] text-black/80 max-w-[500px] mb-2">
           {project.description}
         </p>
 
@@ -101,7 +101,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {project.labels.map((label) => (
             <span
               key={label}
-              className="px-3 py-1 md:px-4 md:py-1.5 border border-black/20 rounded-full text-[10px] md:text-xs font-semibold tracking-[0.06em] uppercase text-black/70"
+              className="px-3 py-1 md:px-4 md:py-1.5 border border-black/50 rounded-sm text-[10px] md:text-xs font-semibold tracking-[0.06em] uppercase text-black/70"
             >
               {label}
             </span>
