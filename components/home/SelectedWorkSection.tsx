@@ -45,7 +45,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <div
       ref={cardRef}
-      className={`flex flex-col md:flex-row items-start gap-10 md:gap-20 w-full ${
+      className={`flex flex-col md:flex-row items-start gap-10  w-full ${
         !isEven ? "md:flex-row-reverse" : ""
       }`}
     >
@@ -86,26 +86,30 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         initial={{ opacity: 0, y: 40 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.2 }}
-        className="w-full md:w-[60%] flex flex-col items-start"
+        className={`w-full md:w-[60%] flex flex-col ${
+          !isEven ? "md:items-end" : "items-start"
+        }`}
       >
-        <h3 className="text-[clamp(28px,4vw,48px)] font-bold text-black uppercase leading-none tracking-[-0.02em] mb-4 ">
-          {project.title}
-        </h3>
-        
-        <p className="text-[clamp(16px,1.5vw,20px)] font-normal leading-[1.5] text-black/80 max-w-[500px] mb-2">
-          {project.description}
-        </p>
+        <div className="flex flex-col items-start max-w-[400px] w-full">
+          <h3 className="text-[clamp(28px,4vw,40px)] mt-[40px] font-bold text-black uppercase leading-none tracking-[-0.02em] mb-2 ">
+            {project.title}
+          </h3>
+          
+          <p className="text-[clamp(16px,1.5vw,20px)] font-medium leading-[1.2] text-black mb-2">
+            {project.description}
+          </p>
 
-        {/* Labels */}
-        <div className="flex flex-wrap gap-2 md:gap-3">
-          {project.labels.map((label) => (
-            <span
-              key={label}
-              className="px-3 py-1 md:px-4 md:py-1.5 border border-black/50 rounded-sm text-[10px] md:text-xs font-semibold tracking-[0.06em] uppercase text-black/70"
-            >
-              {label}
-            </span>
-          ))}
+          {/* Labels */}
+          <div className="flex flex-wrap gap-2 md:gap-3">
+            {project.labels.map((label) => (
+              <span
+                key={label}
+                className="px-3 py-1 md:px-4 md:py-1.5 border border-black/50 rounded-sm text-[10px] md:text-xs font-semibold tracking-[0.06em] uppercase text-black/70"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
         </div>
       </motion.div>
     </div>
