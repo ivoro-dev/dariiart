@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-[100] transition-[background-color,box-shadow] duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+        className={`fixed top-0 left-0 right-0 z-30 transition-[background-color,box-shadow] duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
           scrolled || menuOpen
             ? "bg-white"
             : "bg-transparent"
@@ -126,7 +126,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="fixed top-[72px] left-0 right-0 bottom-0 z-[99] bg-white flex flex-col justify-center px-8"
+            className="fixed top-[72px] left-0 right-0 bottom-0 z-[35] bg-white flex flex-col justify-center px-8"
           >
             <ul className="list-none m-0 p-0 flex flex-col gap-2">
               {navLinks.map(({ label, href, hoverColor, hoverBg }, i) => {

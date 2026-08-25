@@ -3,6 +3,9 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll() {
   useEffect(() => {
@@ -26,6 +29,9 @@ export default function SmoothScroll() {
 
     // Expose for external use (e.g. programmatic scroll)
     (window as Window & { __lenis?: Lenis }).__lenis = lenis;
+
+    // Sync Lenis scroll updates with GSAP ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
 
     // Wire Lenis into GSAP's ticker — one unified RAF loop
     gsap.ticker.add((time) => {
