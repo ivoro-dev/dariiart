@@ -40,9 +40,9 @@ export default function Footer() {
                 <Image
                   src={social.image}
                   alt={social.name}
-                  width={50}
-                  height={50}
-                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain opacity-90 hover:opacity-100 transition-opacity duration-200 block"
+                  width={200}
+                  height={60}
+                  className="h-6 sm:h-7 md:h-8 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-200 block"
                 />
               </motion.div>
             </a>

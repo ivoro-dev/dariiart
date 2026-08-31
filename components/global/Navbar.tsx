@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const navLinks = [
   { label: "Home",    href: "/",        hoverColor: "#10CC6B", hoverBg: "#3D2323" },
@@ -96,9 +96,9 @@ export default function Navbar() {
                   animate={{ rotate: 0, opacity: 1 }}
                   exit={{ rotate: 45, opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="flex"
+                  className="flex items-center"
                 >
-                  <XMarkIcon width={24} height={24} />
+                  <XMarkIcon width={28} height={28} />
                 </motion.span>
               ) : (
                 <motion.span
@@ -107,9 +107,15 @@ export default function Navbar() {
                   animate={{ rotate: 0, opacity: 1 }}
                   exit={{ rotate: 45, opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="flex"
+                  className="flex items-center"
                 >
-                  <Bars3Icon width={24} height={24} />
+                  <Image
+                    src="/assets/menu-icon.png"
+                    alt="Menu"
+                    width={36}
+                    height={36}
+                    className="h-7 sm:h-8 w-auto object-contain block select-none"
+                  />
                 </motion.span>
               )}
             </AnimatePresence>

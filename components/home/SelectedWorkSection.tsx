@@ -176,40 +176,46 @@ export default function SelectedWorkSection() {
     >
       <div className="max-w-7xl mx-auto flex flex-col">
         {/* Header Section */}
-        <div className="flex flex-col gap-4 mb-24 md:mb-32">
+        <div className="flex flex-col gap-3 sm:gap-4 mb-20 md:mb-28">
           {/* Heading */}
-          <div className="overflow-hidden">
+          <div className="overflow-hidden pb-2">
             <motion.h2
-              initial={{ y: "110%" }}
-              animate={isInView ? { y: "0%" } : { y: "110%" }}
+              initial={{ y: "115%" }}
+              animate={isInView ? { y: "0%" } : { y: "115%" }}
               transition={{
-                duration: 0.7,
-                ease: [0.33, 1, 0.68, 1] as const,
+                duration: 0.85,
+                ease: [0.76, 0, 0.24, 1] as const,
                 delay: 0.05,
               }}
-              className="text-[clamp(32px,5vw,56px)] font-medium uppercase tracking-[-0.01em] leading-none text-black m-0"
+              className="text-[clamp(44px,7vw,84px)] font-bold tracking-[-0.02em] leading-none text-black m-0"
             >
-              Projects that
-              <br />
-              speak for themselves.
+              Projects
             </motion.h2>
           </div>
 
-          {/* Subheading */}
-          <div className="overflow-hidden mt-2">
-            <motion.p
-              initial={{ y: "110%" }}
-              animate={isInView ? { y: "0%" } : { y: "110%" }}
+          {/* Subheading Image */}
+          <div className="w-full max-w-[620px] sm:max-w-[720px] md:max-w-[820px]">
+            <motion.div
+              initial={{ width: "0%" }}
+              animate={isInView ? { width: "100%" } : { width: "0%" }}
               transition={{
-                duration: 0.65,
-                ease: [0.33, 1, 0.68, 1] as const,
-                delay: 0.13,
+                duration: 1.1,
+                ease: [0.76, 0, 0.24, 1] as const,
+                delay: 0.25,
               }}
-              className="text-[clamp(15px,1.4vw,18px)] font-normal leading-[1.65] text-black/55 m-0 max-w-125"
+              className="overflow-hidden block"
             >
-              A selection of creative projects where strategy, visual identity,
-              and artistic expression come together to tell a clear story.
-            </motion.p>
+              <div className="w-[calc(100vw-48px)] max-w-[620px] sm:w-[720px] sm:max-w-[720px] md:w-[820px] md:max-w-[820px]">
+                <Image
+                  src="/images/project-subtitle.png"
+                  alt="Ideas uncovered, Identities shaped, Experiences brought to life."
+                  width={1879}
+                  height={279}
+                  className="w-full h-auto object-contain block"
+                  priority
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
 

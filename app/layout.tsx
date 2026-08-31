@@ -14,8 +14,24 @@ const heebo = Heebo({
 });
 
 export const metadata: Metadata = {
-  title: "Dariiarts",
-  description: "",
+  title: {
+    default: "Dariiarts — Independent Art Director & Graphic Designer",
+    template: "%s | Dariiarts",
+  },
+  description:
+    "Portfolio of Dariia Chervoniak, independent Art Director and Graphic Designer based in the UK, specializing in concept-led identities, art direction, and digital experiences.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

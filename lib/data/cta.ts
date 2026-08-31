@@ -12,9 +12,9 @@ export type CtaData = {
 };
 
 export const ctaData: CtaData = {
-  heading: "Have an idea worth bringing to life?",
+  heading: "Let's uncover something meaningful.",
   subheading:
-    "Whether you’re building a new identity, shaping a visual story, or exploring an idea, I’d love to hear what you have in mind.",
+    "Have an idea, organisation or story that needs a stronger visual voice?",
   primaryButton: {
     label: "Start a conversation",
     href: "/contact",
