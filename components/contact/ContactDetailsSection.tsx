@@ -140,9 +140,11 @@ export default function ContactDetailsSection() {
             {/* Parent Frame Container with background video-bg.png and padding */}
             <div className="relative w-full max-w-[680px] aspect-[8143/4262] p-[3.5%] sm:p-[4%] flex items-center justify-center select-none">
               {/* Background frame image */}
-              <img
+              <Image
                 src={videoBgImage.src}
                 alt={videoBgImage.alt}
+                width={1628}
+                height={852}
                 className="absolute inset-0 w-full h-full object-contain pointer-events-none z-10"
               />
 

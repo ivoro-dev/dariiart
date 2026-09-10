@@ -2,6 +2,11 @@ export type Project = {
   id: string;
   title: string;
   description: string;
+  heroSubtitle?: string;
+  conceptTag?: string;
+  challengeText?: string;
+  quoteText?: string;
+  videoUrl?: string;
   labels: string[];
   image: string;
   category: string;
@@ -18,17 +23,22 @@ export const projects: Project[] = [
     title: "VOLOSHKY",
     description:
       "A brand identity for a Ukrainian dance ensemble that transforms the celebration of one culture into an invitation to celebrate many.",
-    longDescription:
-      "Voloshky Ukrainian Dance Ensemble needed a modernized visual language that honors rich cultural tradition while speaking to international contemporary audiences. We crafted an expressive identity rooted in dynamic rhythm, traditional textile motifs reinterpretations, and bold editorial typography.",
-    labels: ["Art Direction", "Brand Identity"],
+    heroSubtitle:
+      "Voloshky Ukrainian Dance Ensemble, a Ukrainian dance company based in the United States, was preparing a world tour across Africa, America, Asia, and Europe.",
+    conceptTag: "Concept Development",
+    challengeText:
+      "Create a visual identity for a Ukrainian dance ensemble's world tour that celebrates Ukrainian heritage while embracing the cultural identity of every destination.",
+    quoteText:
+      "\"Celebrating one culture can become an invitation to celebrate many.\"",
+    videoUrl: "/images/project-11.mp4",
+    labels: ["ART DIRECTION", "BRAND IDENTITY"],
     category: "Brand Identity",
     year: "2024",
     client: "Voloshky Ensemble",
     services: ["Brand Strategy", "Visual Identity", "Art Direction", "Print & Packaging"],
-    image:
-      "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=800&auto=format&fit=crop",
+    image: "/assets/project-1.png",
     gallery: [
-      "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=1200&auto=format&fit=crop",
+      "/assets/project-1.png",
       "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1200&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
     ],

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
@@ -86,9 +87,11 @@ export default function AboutVideoSection() {
               className="relative w-6 sm:w-8 md:w-10 lg:w-12 shrink-0 flex items-center justify-center select-none overflow-hidden"
             >
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <img
+                <Image
                   src={verticalImageSrc}
                   alt={verticalImageAlt}
+                  width={300}
+                  height={100}
                   className="h-4.5 sm:h-6.5 md:h-8 lg:h-10 w-auto max-w-none -rotate-90 origin-center object-contain block"
                 />
               </div>
