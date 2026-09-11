@@ -6,6 +6,7 @@ import ProjectVideoSection from "@/components/project/ProjectVideoSection";
 import ProjectDualImagesSection from "@/components/project/ProjectDualImagesSection";
 import ProjectScaledVideoSection from "@/components/project/ProjectScaledVideoSection";
 import ProjectFlagPatternsSection from "@/components/project/ProjectFlagPatternsSection";
+import ProjectCampaignMotionSection from "@/components/project/ProjectCampaignMotionSection";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -13,7 +14,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const project = projects.find((p) => p.id === id);
+  const project = projects.find((p) => p.id === id) || (id === "1" ? projects[0] : undefined);
 
   if (!project) {
     return { title: "Project Not Found — Dariiarts" };
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectDetailPage({ params }: Props) {
   const { id } = await params;
-  const project = projects.find((p) => p.id === id);
+  const project = projects.find((p) => p.id === id) || (id === "1" ? projects[0] : undefined);
 
   if (!project) {
     notFound();
@@ -40,6 +41,8 @@ export default async function ProjectDetailPage({ params }: Props) {
       <ProjectDualImagesSection project={project} />
       <ProjectScaledVideoSection project={project} />
       <ProjectFlagPatternsSection />
+      <ProjectCampaignMotionSection />
     </main>
   );
 }
+
