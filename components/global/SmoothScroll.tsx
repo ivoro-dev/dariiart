@@ -4,10 +4,13 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { usePathname } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll() {
+  const pathname = usePathname();
+
   useEffect(() => {
     // Honour accessibility preference
     const reducedMotion = window.matchMedia(
@@ -23,7 +26,7 @@ export default function SmoothScroll() {
       gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 2,
+      touchMultiplier: 1.5,
       infinite: false,
     });
 
@@ -31,22 +34,46 @@ export default function SmoothScroll() {
     window.__lenis = lenis;
 
     // Sync Lenis scroll updates with GSAP ScrollTrigger
-    lenis.on("scroll", ScrollTrigger.update);
+    const handleScroll = () => {
+      ScrollTrigger.update();
+    };
+    lenis.on("scroll", handleScroll);
 
     // Wire Lenis into GSAP's ticker — one unified RAF loop
-    gsap.ticker.add((time) => {
+    const updateTicker = (time: number) => {
       lenis.raf(time * 1000); // gsap time is in seconds, lenis expects ms
-    });
+    };
+    gsap.ticker.add(updateTicker);
 
     // Disable GSAP's lag smoothing so it doesn't interfere
     gsap.ticker.lagSmoothing(0);
 
     return () => {
-      gsap.ticker.remove((time) => lenis.raf(time * 1000));
+      gsap.ticker.remove(updateTicker);
+      lenis.off("scroll", handleScroll);
       lenis.destroy();
       delete window.__lenis;
     };
   }, []);
+
+  // Handle route changes: scroll to top immediately & refresh layout for ScrollTrigger & Lenis
+  useEffect(() => {
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
+
+    // Allow DOM to settle, then refresh ScrollTrigger & Lenis layout
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+      if (window.__lenis) {
+        window.__lenis.resize();
+      }
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   // Renders nothing — purely side-effect
   return null;

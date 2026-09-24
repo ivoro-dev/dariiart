@@ -104,17 +104,6 @@ export default function ProcessSection() {
   };
 
   const handleVideoEnded = () => {
-    const lenis = window.__lenis;
-    const targetScroll = window.scrollY + window.innerHeight * 0.85;
-
-    if (lenis) {
-      lenis.scrollTo(targetScroll, {
-        duration: 1.4,
-      });
-    } else {
-      window.scrollTo({ top: targetScroll, behavior: "smooth" });
-    }
-
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => {});

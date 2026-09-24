@@ -17,10 +17,10 @@ function ProjectWorkCard({
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const imageWrapperRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(cardRef, { once: true, margin: "-10%" });
+  const isRevealed = useInView(cardRef, { once: true, margin: "-10%" });
+  const isCardActive = useInView(cardRef, { amount: 0.35 });
 
   const [hovered, setHovered] = useState(false);
-  const bgImage = index % 2 === 0 ? "/images/gradient-one.png" : "/images/gradient-two.png";
 
   // Mouse tracking for zoom effect
   const mouseX = useMotionValue(0.5);
@@ -47,24 +47,21 @@ function ProjectWorkCard({
     <div
       ref={cardRef}
       onClick={() => onSelect(project.id)}
-      className="relative w-full p-10 overflow-hidden mb-16 md:mb-24 flex flex-col md:flex-row items-start gap-10 cursor-pointer group"
+      className="relative w-full p-8 sm:p-12 md:p-14 mb-16 md:mb-24 flex flex-col md:flex-row items-center gap-8 md:gap-12 cursor-pointer group"
     >
-      {/* Background: gradient image sliding from bottom to top with smooth fade */}
+      {/* Background: video-bg.png framing the component completely */}
       <motion.div
-        initial={{ y: "100%", opacity: 0 }}
-        animate={isInView ? { y: "0%", opacity: 1 } : { y: "100%", opacity: 0 }}
-        transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
-        style={{
-          maskImage: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%)",
-        }}
+        initial={{ y: "30px", opacity: 0 }}
+        animate={isCardActive ? { y: "0px", opacity: 1 } : { y: "30px", opacity: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute inset-[-10px] sm:inset-[-18px] md:inset-[-24px] z-0 pointer-events-none"
       >
         <Image
-          src={bgImage}
-          alt="Card gradient background"
+          src="/assets/video-bg.png"
+          alt="Card background frame"
           fill
-          className="object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-105"
+          className="object-fill opacity-95 transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+          priority
         />
       </motion.div>
 
@@ -74,7 +71,7 @@ function ProjectWorkCard({
         <div className="w-full md:w-[35%] shrink-0">
           <motion.div
             initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
-            animate={isInView ? { clipPath: "inset(0% 0% 0% 0%)" } : { clipPath: "inset(0% 0% 100% 0%)" }}
+            animate={isRevealed ? { clipPath: "inset(0% 0% 0% 0%)" } : { clipPath: "inset(0% 0% 100% 0%)" }}
             transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.15 }}
             className="relative w-full aspect-square border border-black/10 overflow-hidden bg-[#E5E4E2] rounded-sm"
             ref={imageWrapperRef}
@@ -84,7 +81,7 @@ function ProjectWorkCard({
           >
             <motion.div
               initial={{ scale: 1.2 }}
-              animate={{ scale: hovered ? 1.5 : (isInView ? 1 : 1.2) }}
+              animate={{ scale: hovered ? 1.5 : (isRevealed ? 1 : 1.2) }}
               transition={{
                 duration: hovered ? 0.6 : 1.2,
                 ease: hovered ? "easeOut" : [0.76, 0, 0.24, 1],
@@ -105,7 +102,7 @@ function ProjectWorkCard({
         {/* Content (60% width on desktop) */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          animate={isRevealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.3 }}
           className="w-full md:w-[60%] flex flex-col items-start"
         >

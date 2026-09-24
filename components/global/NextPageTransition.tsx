@@ -54,7 +54,8 @@ export default function NextPageTransition() {
         document.body.scrollHeight,
         document.documentElement.scrollHeight
       );
-      return scrollY + windowHeight >= documentHeight - 60;
+      if (documentHeight <= windowHeight + 100) return false;
+      return scrollY + windowHeight >= documentHeight - 40;
     };
 
     const handleWheel = (e: WheelEvent) => {

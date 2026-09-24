@@ -43,19 +43,6 @@ export default function HeroSection() {
 
   const handleVideoEnd = () => {
     const video = videoRef.current;
-
-    // Check if user is still viewing the Hero Section (top 50% of viewport height)
-    const currentScroll = window.scrollY;
-    if (currentScroll < window.innerHeight * 0.5) {
-      const lenis = window.__lenis;
-      if (lenis) {
-        lenis.scrollTo(window.innerHeight, { duration: 1.4 });
-      } else {
-        window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-      }
-    }
-
-    // Loop video continuously
     if (video) {
       video.currentTime = 0;
       video.play().catch(() => {});

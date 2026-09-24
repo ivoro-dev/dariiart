@@ -6,6 +6,7 @@ import TheShadowStorySection from "@/components/project/TheShadowStorySection";
 import TheShadowVisualGridSection from "@/components/project/TheShadowVisualGridSection";
 import TheShadowMeetSection from "@/components/project/TheShadowMeetSection";
 import TheShadowPostersSection from "@/components/project/TheShadowPostersSection";
+import TheShadowProcessSection from "@/components/project/TheShadowProcessSection";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default function TheShadowPage() {
       <TheShadowVisualGridSection />
       <TheShadowMeetSection />
       <TheShadowPostersSection />
+      <TheShadowProcessSection />
     </main>
   );
 }
