@@ -1,34 +1,22 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { projects } from "@/lib/data/projects";
-import ProjectHeroSection from "@/components/project/ProjectHeroSection";
+import VoloshkyHeroSection from "@/components/project/VoloshkyHeroSection";
 import ProjectVideoSection from "@/components/project/ProjectVideoSection";
 import ProjectDualImagesSection from "@/components/project/ProjectDualImagesSection";
 import ProjectScaledVideoSection from "@/components/project/ProjectScaledVideoSection";
 import ProjectFlagPatternsSection from "@/components/project/ProjectFlagPatternsSection";
 import ProjectCampaignMotionSection from "@/components/project/ProjectCampaignMotionSection";
 
-type Props = {
-  params: Promise<{ id: string }>;
+import { notFound } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "VOLOSHKY — Dariiarts",
+  description:
+    "A brand identity for a Ukrainian dance ensemble that transforms the celebration of one culture into an invitation to celebrate many.",
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
-  const project = projects.find((p) => p.id === id) || (id === "1" ? projects[0] : undefined);
-
-  if (!project) {
-    return { title: "Project Not Found — Dariiarts" };
-  }
-
-  return {
-    title: `${project.title} — Dariiarts`,
-    description: project.description,
-  };
-}
-
-export default async function ProjectDetailPage({ params }: Props) {
-  const { id } = await params;
-  const project = projects.find((p) => p.id === id) || (id === "1" ? projects[0] : undefined);
+export default function VoloshkyPage() {
+  const project = projects.find((p) => p.id === "voloshky");
 
   if (!project) {
     notFound();
@@ -36,7 +24,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-white">
-      <ProjectHeroSection project={project} />
+      <VoloshkyHeroSection />
       <ProjectVideoSection project={project} />
       <ProjectDualImagesSection project={project} />
       <ProjectScaledVideoSection project={project} />
@@ -45,4 +33,3 @@ export default async function ProjectDetailPage({ params }: Props) {
     </main>
   );
 }
-

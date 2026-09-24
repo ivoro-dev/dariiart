@@ -20,14 +20,10 @@ export default function ProcessSection() {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.play().catch(() => {
-        // Autoplay policy fallback
-      });
+      videoRef.current.play().catch(() => {});
     }
     if (bgVideoRef.current) {
-      bgVideoRef.current.play().catch(() => {
-        // Autoplay policy fallback
-      });
+      bgVideoRef.current.play().catch(() => {});
     }
 
     const ctx = gsap.context(() => {
@@ -43,7 +39,6 @@ export default function ProcessSection() {
         },
       });
 
-      // 1. Entry: Scale up from 55% to 100% as section enters viewport until fully in view
       tl.fromTo(
         videoWrapperRef.current,
         {
@@ -59,7 +54,6 @@ export default function ProcessSection() {
         0
       );
 
-      // 2. Full Entry Hold: Stay at 100% full width and height while user is inside section
       tl.to(
         videoWrapperRef.current,
         {
@@ -71,7 +65,6 @@ export default function ProcessSection() {
         0.35
       );
 
-      // 3. Exit: Scale back down from 100% to 55% as user leaves section (scrolling down or up)
       tl.to(
         videoWrapperRef.current,
         {
@@ -83,18 +76,14 @@ export default function ProcessSection() {
         0.65
       );
 
-      // Overlay text animation
       if (overlayRef.current) {
-        // Fade out overlay as video expands to 100%
         tl.fromTo(
           overlayRef.current,
           { opacity: 1, y: 0 },
           { opacity: 0, y: -40, ease: "power1.out", duration: 0.35 },
           0
         );
-        // Hold opacity 0 while full
         tl.to(overlayRef.current, { opacity: 0, duration: 0.3 }, 0.35);
-        // Fade back in as it scales back down on exit
         tl.to(
           overlayRef.current,
           { opacity: 1, y: 0, ease: "power1.in", duration: 0.35 },
@@ -115,8 +104,7 @@ export default function ProcessSection() {
   };
 
   const handleVideoEnded = () => {
-    // Smoothly scroll the user down when the process video completes
-    const lenis = (window as Window & { __lenis?: any }).__lenis;
+    const lenis = window.__lenis;
     const targetScroll = window.scrollY + window.innerHeight * 0.85;
 
     if (lenis) {
@@ -127,7 +115,6 @@ export default function ProcessSection() {
       window.scrollTo({ top: targetScroll, behavior: "smooth" });
     }
 
-    // Replay/loop videos after triggering scroll
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => {});
@@ -150,14 +137,11 @@ export default function ProcessSection() {
       ref={sectionRef}
       className="relative z-40 w-full h-[200vh] bg-[#F7F6F4] text-black overflow-visible"
     >
-      {/* Sticky Viewport Container */}
       <div className="sticky top-0 z-40 h-screen w-full flex items-center justify-center overflow-hidden bg-[#F7F6F4]">
-        {/* Scaled Video Wrapper */}
         <div
           ref={videoWrapperRef}
           className="relative w-full h-full overflow-hidden bg-black flex items-center justify-center will-change-transform transform-gpu origin-center shadow-2xl"
         >
-          {/* Ambient Blurred Video Background */}
           <video
             ref={bgVideoRef}
             src="/creative-process.mp4"
@@ -169,7 +153,6 @@ export default function ProcessSection() {
             className="absolute inset-0 w-full h-full object-cover scale-110 blur-3xl opacity-80 pointer-events-none brightness-95"
           />
 
-          {/* Main Crisp Foreground Video Element (100% Uncropped) */}
           <video
             ref={videoRef}
             src="/creative-process.mp4"
@@ -181,7 +164,6 @@ export default function ProcessSection() {
             className="relative z-10 w-full h-full object-contain pointer-events-none"
           />
 
-          {/* Floating Overlay Header (Visible on scaled state) */}
           <div
             ref={overlayRef}
             className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-20 pointer-events-none will-change-transform"
@@ -197,7 +179,6 @@ export default function ProcessSection() {
             </p>
           </div>
 
-          {/* Mute / Unmute Audio Button */}
           <button
             onClick={toggleMute}
             aria-label={isMuted ? "Unmute video audio" : "Mute video audio"}

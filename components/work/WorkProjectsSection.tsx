@@ -114,7 +114,7 @@ function ProjectWorkCard({
               {project.title}
             </h3>
             
-            <p className="text-[clamp(16px,1.5vw,20px)] font-medium leading-[1.3] text-black/90 mb-4">
+            <p className="text-[clamp(16px,1.5vw,20px)] font-medium leading-[1.3] text-black/90 mb-4 whitespace-pre-line">
               {project.description}
             </p>
 

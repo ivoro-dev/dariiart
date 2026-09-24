@@ -28,7 +28,7 @@ export default function SmoothScroll() {
     });
 
     // Expose for external use (e.g. programmatic scroll)
-    (window as Window & { __lenis?: Lenis }).__lenis = lenis;
+    window.__lenis = lenis;
 
     // Sync Lenis scroll updates with GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
@@ -44,7 +44,7 @@ export default function SmoothScroll() {
     return () => {
       gsap.ticker.remove((time) => lenis.raf(time * 1000));
       lenis.destroy();
-      delete (window as Window & { __lenis?: Lenis }).__lenis;
+      delete window.__lenis;
     };
   }, []);
 

@@ -21,8 +21,7 @@ export default function HeroSection() {
     };
 
     const alreadyDone =
-      typeof window !== "undefined" &&
-      (window as Window & { __preloaderDone?: boolean }).__preloaderDone;
+      typeof window !== "undefined" && Boolean(window.__preloaderDone);
 
     if (alreadyDone) {
       startVideo();
@@ -46,9 +45,9 @@ export default function HeroSection() {
     const video = videoRef.current;
 
     // Check if user is still viewing the Hero Section (top 50% of viewport height)
-    const currentScroll = window.scrollY || window.pageYOffset;
+    const currentScroll = window.scrollY;
     if (currentScroll < window.innerHeight * 0.5) {
-      const lenis = (window as Window & { __lenis?: any }).__lenis;
+      const lenis = window.__lenis;
       if (lenis) {
         lenis.scrollTo(window.innerHeight, { duration: 1.4 });
       } else {

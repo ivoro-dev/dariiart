@@ -48,7 +48,7 @@ export default function NextPageTransition() {
     let animationFrameId: number;
 
     const checkAtBottom = () => {
-      const scrollY = window.scrollY || window.pageYOffset;
+      const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = Math.max(
         document.body.scrollHeight,

@@ -95,7 +95,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             {project.title}
           </h3>
           
-          <p className="text-[clamp(16px,1.5vw,20px)] font-medium leading-[1.2] text-black mb-2">
+          <p className="text-[clamp(16px,1.5vw,20px)] font-medium leading-[1.2] text-black mb-2 whitespace-pre-line">
             {project.description}
           </p>
 

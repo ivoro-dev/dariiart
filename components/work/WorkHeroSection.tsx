@@ -9,8 +9,7 @@ export default function WorkHeroSection() {
 
   useEffect(() => {
     const isDone =
-      typeof window !== "undefined" &&
-      Boolean((window as Window & { __preloaderDone?: boolean }).__preloaderDone);
+      typeof window !== "undefined" && Boolean(window.__preloaderDone);
 
     if (isDone) {
       setStartAnim(true);

@@ -47,7 +47,7 @@ export default function Preloader() {
       } else {
         setProgress(100);
         setTimeout(() => {
-          (window as Window & { __preloaderDone?: boolean }).__preloaderDone = true;
+          window.__preloaderDone = true;
           window.dispatchEvent(new CustomEvent("preloader:done"));
           setVisible(false);
         }, 500);

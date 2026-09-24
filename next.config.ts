@@ -9,6 +9,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/work/moore-perfume",
+        destination: "/work/moor-perfume",
+        permanent: true,
+      },
+      {
+        source: "/work/volohosky",
+        destination: "/work/voloshky",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
