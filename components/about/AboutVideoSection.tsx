@@ -84,15 +84,15 @@ export default function AboutVideoSection() {
             <motion.div
               variants={leftContainerExpandVariants}
               style={{ transformOrigin: "bottom" }}
-              className="relative w-6 sm:w-8 md:w-10 lg:w-12 shrink-0 flex items-center justify-center select-none overflow-hidden"
+              className="relative w-6 sm:w-8 md:w-10 lg:w-12 shrink-0 flex items-center justify-center select-none overflow-hidden [container-type:size]"
             >
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <Image
                   src={verticalImageSrc}
                   alt={verticalImageAlt}
-                  width={300}
-                  height={100}
-                  className="h-4.5 sm:h-6.5 md:h-8 lg:h-10 w-auto max-w-none -rotate-90 origin-center object-contain block"
+                  width={1830}
+                  height={137}
+                  className="w-[calc(100cqh-16px)] h-auto max-w-none shrink-0 -rotate-90 origin-center object-contain block"
                 />
               </div>
             </motion.div>

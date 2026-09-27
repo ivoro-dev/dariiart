@@ -50,7 +50,7 @@ export default function TheShadowStorySection() {
           initial={{ opacity: 0, y: 40 }}
           animate={isImageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full relative overflow-hidden group"
+          className="w-full relative -left-[2%] overflow-hidden group"
         >
           <Image
             src="/projects/the-shadow/script.png"

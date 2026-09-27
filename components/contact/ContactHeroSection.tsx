@@ -18,7 +18,8 @@ export default function ContactHeroSection() {
       typeof window !== "undefined" && Boolean(window.__preloaderDone);
 
     if (isDone) {
-      setStartAnim(true);
+      const timer = setTimeout(() => setStartAnim(true), 0);
+      return () => clearTimeout(timer);
     } else {
       const handleDone = () => setStartAnim(true);
       window.addEventListener("preloader:done", handleDone, { once: true });
@@ -34,14 +35,15 @@ export default function ContactHeroSection() {
   return (
     <section className="w-full  bg-[#F7F6F4] pt-[80px] sm:pt-[100px] lg:pt-[130px] pb-10 md:pb-20 px-5 sm:px-12 lg:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col items-start">
-        {/* Top Header Block - Padded on Left Side with Scroll-Driven Fade */}
+        {/* Centered heading and subtitle with scroll-driven fade */}
         <motion.div
           style={{ opacity: headingScrollOpacity, y: headingScrollY }}
-          className="w-full pl-6 sm:pl-16 md:pl-28 lg:pl-36"
+          className="w-full flex flex-col items-center text-center"
         >
           {/* Hand-drawn Script Heading Image */}
-          <div className="overflow-hidden">
+          <div className="w-full overflow-hidden flex justify-center">
             <motion.div
+              className="w-full flex justify-center"
               initial={{ y: "115%", opacity: 0 }}
               animate={
                 startAnim
@@ -59,14 +61,14 @@ export default function ContactHeroSection() {
                 alt={contactHeroData.headingImage.alt}
                 width={contactHeroData.headingImage.width}
                 height={contactHeroData.headingImage.height}
-                className="w-[280px] xs:w-[360px] sm:w-[500px] md:w-[620px] lg:w-[720px] h-auto object-contain block select-none pointer-events-none"
+                className="w-full max-w-[280px] xs:max-w-[360px] sm:max-w-[500px] md:max-w-[620px] lg:max-w-[720px] h-auto object-contain block select-none pointer-events-none"
                 priority
               />
             </motion.div>
           </div>
 
           {/* Subtitle directly below image */}
-          <div className="overflow-hidden pl-20">
+          <div className="w-full overflow-hidden text-center">
             <motion.p
               initial={{ y: "115%", opacity: 0 }}
               animate={

@@ -18,14 +18,52 @@ export default function ProcessSection() {
 
   const [isMuted, setIsMuted] = useState(true);
 
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
+  const syncVideos = () => {
+    const video = videoRef.current;
+    const background = bgVideoRef.current;
+    if (video && background && background.readyState > 0) {
+      if (Math.abs(background.currentTime - video.currentTime) > 0.1) {
+        background.currentTime = video.currentTime;
+      }
     }
-    if (bgVideoRef.current) {
-      bgVideoRef.current.play().catch(() => {});
-    }
+  };
 
+  useEffect(() => {
+    const wrapper = videoWrapperRef.current;
+    const video = videoRef.current;
+    const background = bgVideoRef.current;
+    if (!wrapper || !video || !background) return;
+
+    let isVisible = false;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          video.play().catch(() => {
+            if (isVisible) {
+              video.muted = true;
+              setIsMuted(true);
+              video.play().catch(() => {});
+            }
+          });
+          background.play().catch(() => {});
+        } else {
+          video.pause();
+          background.pause();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(wrapper);
+    return () => {
+      observer.disconnect();
+      video.pause();
+      background.pause();
+    };
+  }, []);
+
+  useEffect(() => {
     const ctx = gsap.context(() => {
       if (!sectionRef.current || !videoWrapperRef.current) return;
 
@@ -95,30 +133,11 @@ export default function ProcessSection() {
     return () => ctx.revert();
   }, []);
 
-  const syncVideos = () => {
-    if (videoRef.current && bgVideoRef.current) {
-      if (Math.abs(bgVideoRef.current.currentTime - videoRef.current.currentTime) > 0.1) {
-        bgVideoRef.current.currentTime = videoRef.current.currentTime;
-      }
-    }
-  };
-
-  const handleVideoEnded = () => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
-    }
-    if (bgVideoRef.current) {
-      bgVideoRef.current.currentTime = 0;
-      bgVideoRef.current.play().catch(() => {});
-    }
-  };
-
   const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !isMuted;
+    setIsMuted(!isMuted);
   };
 
   return (
@@ -134,10 +153,11 @@ export default function ProcessSection() {
           <video
             ref={bgVideoRef}
             src="/creative-process.mp4"
-            autoPlay
+            preload="auto"
             loop
             muted
             playsInline
+            onLoadedMetadata={syncVideos}
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover scale-110 blur-3xl opacity-80 pointer-events-none brightness-95"
           />
@@ -145,11 +165,11 @@ export default function ProcessSection() {
           <video
             ref={videoRef}
             src="/creative-process.mp4"
-            autoPlay
+            preload="auto"
+            loop
             muted={isMuted}
             playsInline
             onTimeUpdate={syncVideos}
-            onEnded={handleVideoEnded}
             className="relative z-10 w-full h-full object-contain pointer-events-none"
           />
 
@@ -164,10 +184,9 @@ export default function ProcessSection() {
               Crafting Digital Mastery
             </h2>
             <p className="mt-4 text-white/80 text-base sm:text-lg max-w-lg font-normal drop-shadow">
-              Scroll to step inside the video workflow
+              A glimpse into the creative workflow
             </p>
           </div>
-
           <button
             onClick={toggleMute}
             aria-label={isMuted ? "Unmute video audio" : "Mute video audio"}
