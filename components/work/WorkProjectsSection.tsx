@@ -13,7 +13,7 @@ function ProjectWorkCard({
 }: {
   project: Project;
   index: number;
-  onSelect: (id: string) => void;
+  onSelect: (id: string, index: number) => void;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const imageWrapperRef = useRef<HTMLDivElement>(null);
@@ -46,7 +46,7 @@ function ProjectWorkCard({
   return (
     <div
       ref={cardRef}
-      onClick={() => onSelect(project.id)}
+      onClick={() => onSelect(project.id, index)}
       className="relative w-full p-8 sm:p-12 md:p-14 mb-16 md:mb-24 flex flex-col md:flex-row items-center gap-8 md:gap-12 cursor-pointer group"
     >
       {/* Background: video-bg.png framing the component completely */}
@@ -144,11 +144,19 @@ export default function WorkProjectsSection() {
     }
   };
 
+  const handleSelectProject = (id: string, index: number) => {
+    if (index === 0) {
+      setSelectedProjectId(id);
+    } else {
+      router.push(`/work/${id}`);
+    }
+  };
+
   useEffect(() => {
     if (selectedProjectId && videoRef.current) {
       videoRef.current.currentTime = 0;
+      videoRef.current.muted = true;
       videoRef.current.play().catch(() => {
-        // Fallback if browser blocks unmuted video
         if (videoRef.current) {
           videoRef.current.muted = true;
           videoRef.current.play();
@@ -165,7 +173,7 @@ export default function WorkProjectsSection() {
             key={project.id || project.title}
             project={project}
             index={index}
-            onSelect={(id) => setSelectedProjectId(id)}
+            onSelect={(id, idx) => handleSelectProject(id, idx)}
           />
         ))}
       </div>
@@ -188,6 +196,7 @@ export default function WorkProjectsSection() {
               ref={videoRef}
               src="/project-demo-1.mp4"
               autoPlay
+              muted
               playsInline
               onEnded={handleVideoEnded}
               className="w-full h-full object-cover"

@@ -21,6 +21,11 @@ const nextConfig: NextConfig = {
         destination: "/work/voloshky",
         permanent: true,
       },
+      {
+        source: "/work/love-lust-and-violence",
+        destination: "/work/love-lust",
+        permanent: true,
+      },
     ];
   },
 };

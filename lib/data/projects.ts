@@ -56,7 +56,7 @@ export const projects: Project[] = [
     quoteText:
       "\"The most personal fragrance isn't\nthe one that changes who you are.\n\nIt's the one that reveals who you've\nalways been.\"",
     videoUrl: "/images/project-11.mp4",
-    labels: ["ART DIRECTION", "BRAND IDENTITY", "PACKAGING"],
+    labels: ["ART DIRECTION", "BRAND IDENTITY"],
     category: "Brand Identity",
     year: "2024",
     client: "The Moor Perfume",
@@ -87,6 +87,37 @@ export const projects: Project[] = [
     image: "/images/the-shadow.png",
     gallery: [
       "/images/the-shadow.png",
+    ],
+  },
+  {
+    id: "love-lust",
+    title: "LOVE, LUST AND VIOLENCE",
+    description:
+      "Helping a photographer sharpen the visual\ndirection for his fine-art exhibition concept.",
+    heroSubtitle:
+      "Helping a photographer sharpen the visual direction for his fine-art exhibition concept.",
+    challengeText:
+      "Shivam Aggarwal came to me with a concept for his exhibition two people from different worlds finding each other, styled through a Japanese aesthetic.\n\nMy role was to help bring clarity to his visual solution: shaping how the narrative reads through image and keeping the story's emotional weight intact. Sharpening an already-strong idea, not reinventing it.",
+    quoteText: "\"Every shot tells a story.\"",
+    labels: ["VISUAL CONSULTING", "CONCEPTUAL THINKING"],
+    category: "Visual Consulting",
+    year: "2024",
+    client: "Shivam Aggarwal",
+    services: ["Visual Consulting", "Conceptual Thinking", "Art Direction"],
+    image: "/projects/love-lust/main-page.png",
+    gallery: [
+      "/projects/love-lust/main-page.png",
+      "/projects/love-lust/1.JPG",
+      "/projects/love-lust/2.JPG",
+      "/projects/love-lust/3.JPG",
+      "/projects/love-lust/4.JPG",
+      "/projects/love-lust/5.JPG",
+      "/projects/love-lust/6.JPG",
+      "/projects/love-lust/7.JPG",
+      "/projects/love-lust/8.jpg",
+      "/projects/love-lust/9.JPG",
+      "/projects/love-lust/10.JPG",
+      "/projects/love-lust/11.JPG",
     ],
   },
 ];

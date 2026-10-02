@@ -219,11 +219,13 @@ export default function SelectedWorkSection() {
           </div>
         </div>
 
-        {/* Projects List */}
+        {/* Projects List (Excludes love-lust so it remains work page only) */}
         <div className="flex flex-col gap-24 md:gap-32">
-          {projects.map((project, i) => (
-            <ProjectCard key={i} project={project} index={i} />
-          ))}
+          {projects
+            .filter((project) => project.id !== "love-lust")
+            .map((project, i) => (
+              <ProjectCard key={project.id} project={project} index={i} />
+            ))}
         </div>
 
         {/* View More Link */}

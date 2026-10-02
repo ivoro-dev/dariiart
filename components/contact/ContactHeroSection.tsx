@@ -88,9 +88,9 @@ export default function ContactHeroSection() {
           </div>
         </motion.div>
 
-        {/* Bottom Content Paragraphs - Unpadded (Aligned to container left edge) */}
+        {/* Bottom Content Paragraphs - Centered with mx-auto & gap-10 */}
         <div className="w-full mt-16 sm:mt-24 lg:mt-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-24 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto w-full">
             {/* Left Column Paragraph */}
             <div className="overflow-hidden">
               <motion.p
@@ -105,7 +105,7 @@ export default function ContactHeroSection() {
                   ease: [0.33, 1, 0.68, 1],
                   delay: 0.55,
                 }}
-                className="text-[16px] sm:text-[18px] md:text-[19px] lg:text-[20px] font-normal leading-tight text-black/90 tracking-normal m-0 max-w-[480px]"
+                className="text-[16px] sm:text-[18px] md:text-[19px] lg:text-[20px] font-normal leading-tight text-black/90 tracking-normal m-0"
               >
                 {contactHeroData.leftParagraph}
               </motion.p>
@@ -125,7 +125,7 @@ export default function ContactHeroSection() {
                   ease: [0.33, 1, 0.68, 1],
                   delay: 0.65,
                 }}
-                className="text-[16px] sm:text-[18px] md:text-[19px] lg:text-[20px] font-normal leading-tight text-black/90 tracking-normal m-0 max-w-[480px]"
+                className="text-[16px] sm:text-[18px] md:text-[19px] lg:text-[20px] font-normal leading-tight text-black/90 tracking-normal m-0"
               >
                 {contactHeroData.rightParagraph}
               </motion.p>
