@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { PlusIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
+import voloshkyConcept from "@/public/images/Voloshky.jpg";
 
 export default function VoloshkyHeroSection() {
   const labels = ["ART DIRECTION", "BRAND IDENTITY"];
@@ -72,6 +74,15 @@ export default function VoloshkyHeroSection() {
               </span>
             </button>
           </motion.div>
+        </div>
+
+        <div className="pl-6 sm:pl-16 md:pl-28 lg:pl-30 mb-10 sm:mb-14 md:mb-16">
+          <Image
+            src={voloshkyConcept}
+            alt="Voloshky concept development"
+            sizes="(min-width: 1280px) 1160px, 100vw"
+            className="block w-full h-auto"
+          />
         </div>
 
         {/* Challenge Statement & Quote Section */}

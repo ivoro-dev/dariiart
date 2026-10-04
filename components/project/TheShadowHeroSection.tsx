@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { PlusIcon } from "@heroicons/react/24/outline";
+import TheShadowConceptLayout from "./TheShadowConceptLayout";
 
 export default function TheShadowHeroSection() {
   const labels = ["ART DIRECTION", "CONCEPTUAL THINKING"];
@@ -75,6 +76,8 @@ export default function TheShadowHeroSection() {
             </button>
           </motion.div>
         </div>
+
+        <TheShadowConceptLayout />
 
         {/* Challenge Statement & Quote Section */}
         <div className="flex flex-col w-full">

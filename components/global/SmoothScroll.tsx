@@ -20,6 +20,8 @@ export default function SmoothScroll() {
     if (reducedMotion) return;
 
     const lenis = new Lenis({
+      // The body grows with route content; html has a fixed viewport height.
+      content: document.body,
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
@@ -32,6 +34,24 @@ export default function SmoothScroll() {
 
     // Expose for external use (e.g. programmatic scroll)
     window.__lenis = lenis;
+
+    // Media can establish its height after the route's initial refresh.
+    let mediaRefreshFrame: number | null = null;
+    const refreshMediaLayout = (event: Event) => {
+      if (
+        !(event.target instanceof HTMLImageElement) &&
+        !(event.target instanceof HTMLVideoElement)
+      ) return;
+
+      if (mediaRefreshFrame !== null) cancelAnimationFrame(mediaRefreshFrame);
+      mediaRefreshFrame = requestAnimationFrame(() => {
+        mediaRefreshFrame = null;
+        ScrollTrigger.refresh();
+        lenis.resize();
+      });
+    };
+    document.addEventListener("load", refreshMediaLayout, true);
+    document.addEventListener("loadedmetadata", refreshMediaLayout, true);
 
     // Sync Lenis scroll updates with GSAP ScrollTrigger
     const handleScroll = () => {
@@ -49,6 +69,9 @@ export default function SmoothScroll() {
     gsap.ticker.lagSmoothing(0);
 
     return () => {
+      document.removeEventListener("load", refreshMediaLayout, true);
+      document.removeEventListener("loadedmetadata", refreshMediaLayout, true);
+      if (mediaRefreshFrame !== null) cancelAnimationFrame(mediaRefreshFrame);
       gsap.ticker.remove(updateTicker);
       lenis.off("scroll", handleScroll);
       lenis.destroy();

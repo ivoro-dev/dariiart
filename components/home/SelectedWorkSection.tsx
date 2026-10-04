@@ -8,7 +8,7 @@ import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import { projects, type Project } from "@/lib/data/projects";
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLAnchorElement>(null);
   const imageWrapperRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(cardRef, { once: true, margin: "-10%" });
 
@@ -43,9 +43,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   const clipAnimate = "inset(0% 0% 0% 0%)";
 
   return (
-    <div
+    <Link
+      href={`/work/${project.id}`}
       ref={cardRef}
-      className={`flex flex-col md:flex-row items-start gap-10  w-full ${
+      className={`group cursor-pointer flex flex-col md:flex-row items-start gap-10 w-full focus-visible:outline-2 focus-visible:outline-offset-8 ${
         !isEven ? "md:flex-row-reverse" : ""
       }`}
     >
@@ -91,8 +92,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         }`}
       >
         <div className="flex flex-col items-start max-w-[400px] w-full">
-          <h3 className="text-[clamp(28px,4vw,40px)] mt-[40px] font-bold text-black uppercase leading-none tracking-[-0.02em] mb-2 ">
-            {project.title}
+          <h3 className="relative isolate text-[clamp(28px,4vw,40px)] mt-[40px] font-bold text-black uppercase leading-none tracking-[-0.02em] mb-2 w-fit px-6 py-3">
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -left-[10%] -right-[20%] -top-[60%] -bottom-[85%] -z-10 bg-[url('/assets/button.png')] bg-[length:100%_100%] bg-no-repeat opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
+            />
+            <span className="relative">{project.title}</span>
           </h3>
           
           <p className="text-[clamp(16px,1.5vw,20px)] font-medium leading-[1.2] text-black mb-2 whitespace-pre-line">
@@ -112,7 +117,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </div>
         </div>
       </motion.div>
-    </div>
+    </Link>
   );
 }
 
