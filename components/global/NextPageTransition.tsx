@@ -124,7 +124,7 @@ export default function NextPageTransition() {
   }, [nextPage.href, router]);
 
   return (
-    <section className="w-full bg-[#F7F6F4] border-t border-black/30 py-3.5 px-6 sm:px-12 md:px-16 box-border select-none">
+    <section className="w-full bg-[#f8f7f5] border-t border-black/30 py-3.5 px-6 sm:px-12 md:px-16 box-border select-none">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
         {/* Left Side — Next Page Link */}
         <Link

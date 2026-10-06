@@ -80,7 +80,7 @@ export default function HeroSection() {
         aria-label={muted ? "Unmute video" : "Mute video"}
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.97 }}
-        className="absolute bottom-8 right-8 z-10 flex items-center gap-2 bg-white/[0.12] backdrop-blur-[10px] border border-white/[0.22] rounded-full py-[10px] px-[18px] cursor-pointer text-white text-[12px] font-medium tracking-[0.08em] uppercase"
+        className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 z-10 flex items-center gap-2 bg-white/[0.12] backdrop-blur-[10px] border border-white/[0.22] rounded-full py-[8px] px-[14px] sm:py-[10px] sm:px-[18px] cursor-pointer text-white text-[11px] sm:text-[12px] font-medium tracking-[0.08em] uppercase"
       >
         <AnimatePresence mode="wait" initial={false}>
           {muted ? (

@@ -39,13 +39,13 @@ export default function ProjectScaledVideoSection({
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-white px-6 sm:px-12 md:px-16 py-10 sm:py-16 flex justify-center overflow-hidden"
+      className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-10 sm:py-16 flex justify-center overflow-hidden"
     >
       <div className="max-w-7xl w-full mx-auto">
         {/* Scroll-scaling video container */}
         <motion.div
           style={{ scale, opacity }}
-          className="w-full relative overflow-hidden  bg-neutral-900 h-[65vh] sm:h-[75vh] lg:h-[80vh] min-h-[500px] sm:min-h-[640px] lg:min-h-[750px] shadow-md origin-center transform-gpu"
+          className="w-full relative overflow-hidden bg-neutral-900 h-[45vh] sm:h-[75vh] lg:h-[80vh] min-h-[280px] sm:min-h-[640px] lg:min-h-[750px] shadow-md origin-center transform-gpu"
         >
           <video
             ref={videoRef}

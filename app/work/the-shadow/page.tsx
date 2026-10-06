@@ -23,7 +23,7 @@ export default function TheShadowPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#f8f7f5]">
       <TheShadowHeroSection />
       <TheShadowBannerSection />
       <TheShadowStorySection />

@@ -24,7 +24,7 @@ export default function MoorPerfumeVideoSection() {
   }, []);
 
   return (
-    <section className="w-full bg-white px-6 sm:px-12 md:px-16 pb-16 sm:pb-24 flex flex-col gap-6 sm:gap-10 md:gap-12 justify-center">
+    <section className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 pb-16 sm:pb-24 flex flex-col gap-6 sm:gap-10 md:gap-12 justify-center">
       <div className="max-w-7xl w-full mx-auto flex flex-col gap-6 sm:gap-10 md:gap-12">
         {/* 1. Board Image */}
         <motion.div
@@ -73,7 +73,7 @@ export default function MoorPerfumeVideoSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full h-full relative overflow-hidden bg-neutral-100 shadow-xs group min-h-[350px] md:min-h-0"
+            className="w-full h-full relative overflow-hidden bg-neutral-100 shadow-xs group min-h-[240px] md:min-h-0"
           >
             <video
               ref={videoRef2}

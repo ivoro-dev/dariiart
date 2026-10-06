@@ -47,20 +47,29 @@ function ProjectWorkCard({
     <div
       ref={cardRef}
       onClick={() => onSelect(project.id, index)}
-      className="relative w-full p-8 sm:p-12 md:p-14 mb-16 md:mb-24 flex flex-col md:flex-row items-center gap-8 md:gap-12 cursor-pointer group"
+      className="relative w-full px-8 py-10 xs:px-10 xs:py-12 sm:p-10 md:p-14 mb-10 sm:mb-16 md:mb-24 flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12 cursor-pointer group overflow-hidden sm:overflow-visible"
     >
-      {/* Background: video-bg.png framing the component completely */}
+      {/* Background: phone-drawing.png on mobile, video-bg.png on desktop */}
       <motion.div
         initial={{ y: "30px", opacity: 0 }}
         animate={isCardActive ? { y: "0px", opacity: 1 } : { y: "30px", opacity: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute inset-[-10px] sm:inset-[-18px] md:inset-[-24px] z-0 pointer-events-none"
+        className="absolute inset-[-8px] xs:inset-[-12px] sm:inset-[-18px] md:inset-[-24px] z-0 pointer-events-none"
       >
+        {/* Mobile background frame: phone-drawing-v2.png */}
+        <Image
+          src="/images/phone-drawing-v2.png"
+          alt="Card background frame"
+          fill
+          className="block sm:hidden object-fill opacity-95 transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+          priority
+        />
+        {/* Desktop background frame: video-bg.png */}
         <Image
           src="/assets/video-bg.png"
           alt="Card background frame"
           fill
-          className="object-fill opacity-95 transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+          className="hidden sm:block object-fill opacity-95 transition-transform duration-700 ease-out group-hover:scale-[1.015]"
           priority
         />
       </motion.div>
@@ -107,11 +116,11 @@ function ProjectWorkCard({
           className="w-full md:w-[60%] flex flex-col items-start"
         >
           <div className="flex flex-col items-start max-w-[440px] w-full">
-            <h3 className="text-[clamp(28px,4vw,40px)] mt-[20px] md:mt-[40px] font-bold text-black uppercase leading-none tracking-[-0.02em] mb-3 group-hover:translate-x-1 transition-transform duration-300">
+            <h3 className="text-[clamp(24px,4vw,40px)] mt-3 md:mt-[40px] font-bold text-black uppercase leading-none tracking-[-0.02em] mb-3 group-hover:translate-x-1 transition-transform duration-300">
               {project.title}
             </h3>
             
-            <p className="text-[clamp(16px,1.5vw,20px)] font-medium leading-[1.3] text-black/90 mb-4 whitespace-pre-line">
+            <p className="text-[clamp(15px,1.5vw,20px)] font-medium leading-[1.35] text-black/90 mb-4 sm:whitespace-pre-line">
               {project.description}
             </p>
 
@@ -136,7 +145,18 @@ function ProjectWorkCard({
 export default function WorkProjectsSection() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const bgVideoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();
+
+  const syncVideos = () => {
+    const video = videoRef.current;
+    const background = bgVideoRef.current;
+    if (video && background && background.readyState > 0) {
+      if (Math.abs(background.currentTime - video.currentTime) > 0.1) {
+        background.currentTime = video.currentTime;
+      }
+    }
+  };
 
   const handleVideoEnded = () => {
     if (selectedProjectId) {
@@ -144,8 +164,8 @@ export default function WorkProjectsSection() {
     }
   };
 
-  const handleSelectProject = (id: string, index: number) => {
-    if (index === 0) {
+  const handleSelectProject = (id: string) => {
+    if (id === "voloshky") {
       setSelectedProjectId(id);
     } else {
       router.push(`/work/${id}`);
@@ -162,18 +182,23 @@ export default function WorkProjectsSection() {
           videoRef.current.play();
         }
       });
+      if (bgVideoRef.current) {
+        bgVideoRef.current.currentTime = 0;
+        bgVideoRef.current.muted = true;
+        bgVideoRef.current.play().catch(() => {});
+      }
     }
   }, [selectedProjectId]);
 
   return (
-    <section className="w-full bg-[#F7F6F4] px-10 pb-24 box-border">
+    <section className="w-full bg-[#f8f7f5] px-4 sm:px-8 md:px-10 pb-24 box-border">
       <div className="w-full flex flex-col">
         {projects.map((project, index) => (
           <ProjectWorkCard
             key={project.id || project.title}
             project={project}
             index={index}
-            onSelect={(id, idx) => handleSelectProject(id, idx)}
+            onSelect={(id) => handleSelectProject(id)}
           />
         ))}
       </div>
@@ -192,14 +217,27 @@ export default function WorkProjectsSection() {
             }}
             className="fixed inset-0 z-[99999] bg-black flex items-center justify-center overflow-hidden"
           >
+            {/* Background Zoomed & Blurred Video */}
+            <video
+              ref={bgVideoRef}
+              src="/project-demo-1.mp4"
+              autoPlay
+              muted
+              playsInline
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover scale-110 blur-3xl opacity-80 pointer-events-none brightness-95"
+            />
+
+            {/* Main Foreground Video in Real Aspect Ratio */}
             <video
               ref={videoRef}
               src="/project-demo-1.mp4"
               autoPlay
               muted
               playsInline
+              onTimeUpdate={syncVideos}
               onEnded={handleVideoEnded}
-              className="w-full h-full object-cover"
+              className="relative z-10 w-full h-full object-contain pointer-events-none"
             />
 
             {/* Skip / Close indicator button in corner */}

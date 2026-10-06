@@ -69,7 +69,7 @@ export default function AboutVideoSection() {
   } = aboutVideoData;
 
   return (
-    <section className="w-full bg-[#F7F6F4] pb-16 sm:pb-24 lg:pb-32 px-5 sm:px-12 lg:px-16 overflow-hidden">
+    <section className="w-full bg-[#f8f7f5] pb-16 sm:pb-24 lg:pb-32 px-5 sm:px-12 lg:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           variants={containerVariants}

@@ -83,7 +83,7 @@ export default function AboutHeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-[#F7F6F4] pt-[70px] sm:pt-[100px] lg:pt-[140px] pb-16 sm:pb-24 lg:pb-28 px-5 sm:px-12 lg:px-16 overflow-hidden"
+      className="w-full bg-[#f8f7f5] pt-[115px] sm:pt-[125px] lg:pt-[140px] pb-16 sm:pb-24 lg:pb-28 px-4 sm:px-12 lg:px-16 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         <motion.div
@@ -93,7 +93,7 @@ export default function AboutHeroSection() {
           className="flex flex-col items-start"
         >
           {/* Main content wrapper with desktop left offset */}
-          <div className="w-full lg:pl-30">
+          <div className="w-full pl-0 sm:pl-12 lg:pl-30">
             {/* Main Page Title with Fade Out Scroll Animation */}
             <motion.h1
               variants={itemVariants}
@@ -145,21 +145,32 @@ export default function AboutHeroSection() {
             </motion.div>
           </div>
 
-          {/* Description Text - Staggered Bottom-to-Top Line Translation */}
-          <div className="mt-10 sm:mt-14 lg:mt-18 max-w-[620px]">
-            {descriptionLines.map((line, i) => (
-              <div key={i} className="overflow-hidden block">
-                <motion.p
-                  custom={i}
-                  variants={lineVariants}
-                  initial="hidden"
-                  animate={isInView ? "visible" : "hidden"}
-                  className="text-[16px] sm:text-[20px] lg:text-[24px] font-medium leading-tight text-black/90 tracking-normal m-0 block sm:whitespace-nowrap"
-                >
-                  {line}
-                </motion.p>
-              </div>
-            ))}
+          {/* Description Text */}
+          <div className="mt-8 sm:mt-14 lg:mt-18 max-w-[620px]">
+            {/* Mobile: Natural flowing paragraph text */}
+            <motion.p
+              variants={itemVariants}
+              className="block sm:hidden text-[16px] font-medium leading-[1.45] text-black/90 tracking-normal m-0"
+            >
+              {descriptionLines.join(" ")}
+            </motion.p>
+
+            {/* Desktop: Staggered Line Translation */}
+            <div className="hidden sm:block">
+              {descriptionLines.map((line, i) => (
+                <div key={i} className="overflow-hidden block">
+                  <motion.p
+                    custom={i}
+                    variants={lineVariants}
+                    initial="hidden"
+                    animate={isInView ? "visible" : "hidden"}
+                    className="text-[20px] lg:text-[24px] font-medium leading-tight text-black/90 tracking-normal m-0 block whitespace-nowrap"
+                  >
+                    {line}
+                  </motion.p>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

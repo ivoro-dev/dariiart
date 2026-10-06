@@ -25,7 +25,7 @@ function ConceptImage({ number }: { number: number }) {
 
 export default function TheShadowConceptLayout() {
   return (
-    <div className="pl-6 sm:pl-16 md:pl-28 lg:pl-30 mb-10 sm:mb-14 md:mb-16">
+    <div className="w-full mb-10 sm:mb-14 md:mb-16">
       <div className="flex flex-col gap-3 sm:gap-4">
         <div className="grid grid-cols-1 md:grid-cols-[0.65fr_1.48fr_1fr] gap-3 sm:gap-4 items-start">
           <ConceptImage number={1} />

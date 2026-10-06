@@ -23,7 +23,7 @@ export default function VoloshkyPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#f8f7f5]">
       <VoloshkyHeroSection />
       <ProjectVideoSection project={project} />
       <ProjectDualImagesSection project={project} />

@@ -106,7 +106,7 @@ export default function Preloader() {
             y: "-100%",
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const },
           }}
-          className="fixed inset-0 z-[9999] bg-[#F7F6F4] flex flex-col items-center justify-center"
+          className="fixed inset-0 z-[9999] bg-[#f8f7f5] flex flex-col items-center justify-center"
         >
           {/* Video logo */}
           <motion.div

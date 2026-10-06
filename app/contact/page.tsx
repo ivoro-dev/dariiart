@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-[#F7F6F4]">
+    <main className="min-h-screen bg-[#f8f7f5]">
       <ContactHeroSection />
       <ContactDetailsSection />
     </main>

@@ -17,8 +17,8 @@ export default function TheShadowStorySection() {
   });
 
   return (
-    <section className="w-full bg-white px-6 sm:px-12 md:px-16 py-6 sm:py-12 flex flex-col justify-center box-border">
-      <div className="max-w-7xl w-full mx-auto flex flex-col gap-16 sm:gap-24">
+    <section className="w-full bg-[#f8f7f5] px-4 sm:px-12 md:px-16 py-6 sm:py-12 flex flex-col justify-center box-border overflow-hidden">
+      <div className="max-w-7xl w-full mx-auto flex flex-col gap-12 sm:gap-24">
         {/* 1. Upper Text Block (Pic 1) */}
         <div ref={topTextRef} className="flex flex-col w-full">
           {/* Paragraph */}
@@ -28,7 +28,7 @@ export default function TheShadowStorySection() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-[620px] mb-4"
           >
-            <p className="text-[clamp(14px,1.7vw,18px)] font-medium text-black leading-[1.2] tracking-tight whitespace-pre-line">
+            <p className="text-[clamp(14px,1.7vw,18px)] font-medium text-black leading-[1.2] tracking-tight sm:whitespace-pre-line">
               {
                 "I developed the film from storyboard to final\nexecution, maintaining control over the visual\nidentity and conceptual direction while\ncollaborating with a small team to bring the\nidea to life."
               }
@@ -44,9 +44,9 @@ export default function TheShadowStorySection() {
               ease: [0.22, 1, 0.36, 1],
               delay: 0.15,
             }}
-            className="max-w-[480px] ml-[10%] sm:ml-[12%] md:ml-[20%]"
+            className="max-w-[480px] ml-[4%] sm:ml-[12%] md:ml-[20%]"
           >
-            <p className="text-[clamp(14px,1.4vw,16px)] font-bold text-black/85 leading-[1.25] whitespace-pre-line">
+            <p className="text-[clamp(14px,1.4vw,16px)] font-bold text-black/85 leading-[1.25] sm:whitespace-pre-line">
               {
                 '"What if we stopped seeing the shadow as something\nbehind us and started seeing it as part of us?"'
               }
@@ -60,7 +60,7 @@ export default function TheShadowStorySection() {
           initial={{ opacity: 0, y: 40 }}
           animate={isImageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full relative -left-[2%] overflow-hidden group"
+          className="w-full relative overflow-hidden group rounded-xs"
         >
           <Image
             src="/projects/the-shadow/script.png"
@@ -82,7 +82,7 @@ export default function TheShadowStorySection() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-[620px]"
           >
-            <p className="text-[clamp(14px,1.7vw,18px)] font-medium text-black leading-[1.2] tracking-tight whitespace-pre-line">
+            <p className="text-[clamp(14px,1.7vw,18px)] font-medium text-black leading-[1.2] tracking-tight sm:whitespace-pre-line">
               {
                 "I translated the idea of the shadow as an inner\nself into a physical relationship between a\nperson and their shadow."
               }
@@ -101,7 +101,7 @@ export default function TheShadowStorySection() {
             }}
             className="max-w-[620px]"
           >
-            <p className="text-[clamp(14px,1.7vw,18px)] font-medium text-black leading-[1.2] tracking-tight whitespace-pre-line">
+            <p className="text-[clamp(14px,1.7vw,18px)] font-medium text-black leading-[1.2] tracking-tight sm:whitespace-pre-line">
               {
                 "The film gradually explores this relationship\nthrough light, darkness, distance, movement\nand physical interaction, allowing the shadow\nto become almost like another character."
               }

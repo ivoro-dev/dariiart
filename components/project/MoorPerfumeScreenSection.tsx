@@ -19,7 +19,7 @@ export default function MoorPerfumeScreenSection() {
   }, []);
 
   return (
-    <section className="w-full bg-white px-6 sm:px-12 md:px-16 pb-16 sm:pb-24 flex flex-col gap-6 sm:gap-10 md:gap-12 justify-center">
+    <section className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 pb-16 sm:pb-24 flex flex-col gap-6 sm:gap-10 md:gap-12 justify-center">
       <div className="max-w-7xl w-full mx-auto flex flex-col gap-6 sm:gap-10 md:gap-12">
         {/* 1. Left Aligned Paragraph */}
         <motion.div
@@ -51,8 +51,8 @@ export default function MoorPerfumeScreenSection() {
           />
         </motion.div>
 
-        {/* 3. Two Videos in a Row (vid-8.mp4 and vid-9.mp4) - Reduced to 80% max width */}
-        <div className="w-full max-w-[80%]  grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-stretch">
+        {/* 3. Two Videos in a Row (vid-8.mp4 and vid-9.mp4) */}
+        <div className="w-full sm:max-w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-stretch">
           {/* Left: vid-8.mp4 */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}

@@ -41,9 +41,9 @@ function ContactLinkBlock({
         href={href}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="inline-flex items-center gap-1.5 no-underline relative text-black group py-0.5"
+        className="inline-flex items-center gap-1 sm:gap-1.5 no-underline relative text-black group py-0.5 max-w-full"
       >
-        <span className="text-[18px] sm:text-[20px] md:text-[22px] font-medium text-black tracking-tight block">
+        <span className="text-[clamp(15px,4.5vw,22px)] font-medium text-black tracking-tight block break-all sm:break-normal">
           {value}
         </span>
 
@@ -56,7 +56,7 @@ function ContactLinkBlock({
             opacity: hovered ? 1 : 0.6,
           }}
           transition={{ duration: 0.28, ease: [0.33, 1, 0.68, 1] }}
-          className="flex items-center text-black"
+          className="flex items-center text-black shrink-0"
         >
           <ArrowUpRightIcon width={18} height={18} strokeWidth={2.2} />
         </motion.span>
@@ -86,7 +86,7 @@ export default function ContactDetailsSection() {
   } = contactDetailsData;
 
   return (
-    <section className="w-full bg-[#F7F6F4] pt-6 sm:pt-12 lg:pt-16 pb-20 sm:pb-28 lg:pb-36 px-5 sm:px-12 lg:px-16 overflow-hidden">
+    <section className="w-full bg-[#f8f7f5] pt-6 sm:pt-12 lg:pt-16 pb-20 sm:pb-28 lg:pb-36 px-4 sm:px-12 lg:px-16 overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col items-start">
         {/* Section Heading & Subtitle */}
         <motion.div
@@ -96,10 +96,10 @@ export default function ContactDetailsSection() {
           transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
           className="mb-10 sm:mb-14 lg:mb-16"
         >
-          <h2 className="text-[38px] xs:text-[48px] sm:text-[60px] md:text-[72px] lg:text-[84px] xl:text-[88px] font-bold text-black leading-none tracking-tight m-0">
+          <h2 className="text-[clamp(32px,8vw,88px)] font-bold text-black leading-none tracking-tight m-0">
             {heading}
           </h2>
-          <p className="text-[18px] xs:text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px] xl:text-[45px] font-medium text-black tracking-tight mt-2 sm:mt-3 m-0">
+          <p className="text-[clamp(18px,4.5vw,45px)] font-medium text-black tracking-tight mt-2 sm:mt-3 m-0">
             {subtitle}
           </p>
         </motion.div>

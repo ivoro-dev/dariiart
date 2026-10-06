@@ -19,7 +19,7 @@ export default function ProjectDualImagesSection({
   const rightSrc = rightImage || "/images/project-11.png";
 
   return (
-    <section className="w-full bg-white px-6 sm:px-12 md:px-16 pb-8 sm:pb-12  flex justify-center">
+    <section className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 pb-8 sm:pb-12  flex justify-center">
       <div className="max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
         {/* Left Half: project-1.png */}
         <motion.div

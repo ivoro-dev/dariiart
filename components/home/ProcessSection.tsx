@@ -77,11 +77,15 @@ export default function ProcessSection() {
         },
       });
 
+      const isMobile = window.innerWidth < 768;
+      const initialScale = isMobile ? 0.78 : 0.55;
+      const initialRadius = isMobile ? "20px" : "36px";
+
       tl.fromTo(
         videoWrapperRef.current,
         {
-          scale: 0.55,
-          borderRadius: "36px",
+          scale: initialScale,
+          borderRadius: initialRadius,
         },
         {
           scale: 1,
@@ -106,8 +110,8 @@ export default function ProcessSection() {
       tl.to(
         videoWrapperRef.current,
         {
-          scale: 0.55,
-          borderRadius: "36px",
+          scale: initialScale,
+          borderRadius: initialRadius,
           ease: "power1.in",
           duration: 0.35,
         },
@@ -143,9 +147,9 @@ export default function ProcessSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-40 w-full h-[200vh] bg-[#F7F6F4] text-black overflow-visible"
+      className="relative z-40 w-full h-[200vh] bg-[#f8f7f5] text-black overflow-visible"
     >
-      <div className="sticky top-0 z-40 h-screen w-full flex items-center justify-center overflow-hidden bg-[#F7F6F4]">
+      <div className="sticky top-0 z-40 h-screen w-full flex items-center justify-center overflow-hidden bg-[#f8f7f5]">
         <div
           ref={videoWrapperRef}
           className="relative w-full h-full overflow-hidden bg-black flex items-center justify-center will-change-transform transform-gpu origin-center shadow-2xl"
@@ -190,7 +194,7 @@ export default function ProcessSection() {
           <button
             onClick={toggleMute}
             aria-label={isMuted ? "Unmute video audio" : "Mute video audio"}
-            className="absolute bottom-6 right-6 z-30 p-3.5 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md border border-white/20 text-white transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-xl"
+            className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 p-2.5 sm:p-3.5 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md border border-white/20 text-white transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-xl"
           >
             {isMuted ? (
               <SpeakerXMarkIcon className="w-5 h-5" />

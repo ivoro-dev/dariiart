@@ -26,7 +26,7 @@ export default function WorkHeroSection() {
   }, []);
 
   return (
-    <section className="w-full bg-[#F7F6F4] px-10 md:px-26 pt-28 md:pt-36 pb-24 md:pb-24 box-border">
+    <section className="w-full bg-[#f8f7f5] px-4 sm:px-8 md:px-16 lg:px-26 pt-20 sm:pt-28 md:pt-36 pb-16 sm:pb-24 box-border">
       <div className="max-w-7xl mx-auto flex flex-col items-start">
         {/* 1. Heading (Appears from bottom) */}
         <div className="overflow-hidden mb-2">
@@ -62,7 +62,7 @@ export default function WorkHeroSection() {
               ease: [0.33, 1, 0.68, 1],
               delay: 0.45,
             }}
-            className="text-[clamp(18px,2vw,24px)] font-normal leading-[1.35] text-black max-w-[50ch] m-0"
+            className="text-[clamp(16px,2vw,24px)] font-normal leading-[1.35] text-black max-w-[50ch] m-0"
           >
             A selection of projects exploring identity, art direction, digital experiences and visual storytelling from cultural organisations and independent brands to creative campaigns.
           </motion.p>
@@ -81,14 +81,14 @@ export default function WorkHeroSection() {
             ease: [0.7, 0, 0.84, 0],
             delay: 0.7,
           }}
-          className="relative pt-2"
+          className="relative pt-2 w-full max-w-[500px]"
         >
           <Image
             src="/images/darria_pharase.png"
             alt="Build to evolve, not follow trends."
             width={580}
             height={90}
-            className="w-[300px] sm:w-[420px] md:w-[500px] h-auto object-contain select-none pointer-events-none"
+            className="w-[260px] xs:w-[300px] sm:w-[420px] md:w-[500px] max-w-full h-auto object-contain select-none pointer-events-none"
             priority
           />
         </motion.div>

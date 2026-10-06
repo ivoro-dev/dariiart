@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function LoveLustGallerySection() {
   return (
-    <section className="w-full bg-white px-6 sm:px-12 md:px-16 pb-24 sm:pb-32 flex flex-col justify-center box-border">
+    <section className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 pb-24 sm:pb-32 flex flex-col justify-center box-border">
       <div className="max-w-7xl w-full mx-auto flex flex-col gap-14 sm:gap-20 md:gap-28">
         
         {/* 1. 1.png / 1.JPG — 70% width, left aligned */}

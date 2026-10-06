@@ -59,7 +59,7 @@ function HeadingLine({
         variants={lineVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="font-normal leading-[1.65] text-black m-0 text-[clamp(17px,4.8vw,22px)] sm:text-[clamp(18px,2.4vw,26px)]"
+        className="font-normal leading-[1.4] sm:leading-[1.65] text-black m-0 text-[clamp(15px,4.2vw,22px)] sm:text-[clamp(18px,2.4vw,26px)]"
       >
         {children}
       </motion.div>
@@ -75,43 +75,66 @@ export default function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      className="min-h-dvh w-full bg-[#F7F6F4] flex flex-col items-center box-border
-                 pt-[88px] px-5 pb-8 gap-12 justify-start
+      className="w-full sm:min-h-dvh bg-[#f8f7f5] flex flex-col items-center box-border
+                 pt-[80px] px-4 pb-4 gap-6 justify-start
                  sm:pt-[100px] sm:px-6 sm:pb-12 sm:gap-10 sm:justify-center"
     >
       {/* Heading */}
       <div className="max-w-[780px] w-full text-center">
-        {/* Line 1 */}
-        <HeadingLine index={0} isInView={isInView}>
-          <span className="block">
-            Independent{" "}
-            <span className="inline-block align-middle relative -top-0.5 mx-1">
-              <Image
-                src="/assets/art-director.png"
-                alt="Art Director"
-                width={160}
-                height={36}
-                className="h-[clamp(22px,2.6vw,34px)] w-auto object-contain block"
-                priority
-              />
-            </span>{" "}
-            <span className="hidden sm:inline">+ Graphic Designer creating</span>
-          </span>
-        </HeadingLine>
+        {/* Desktop Heading (3 lines) */}
+        <div className="hidden sm:block">
+          <HeadingLine index={0} isInView={isInView}>
+            <span className="block">
+              Independent{" "}
+              <span className="inline-block align-middle relative -top-0.5 mx-1">
+                <Image
+                  src="/assets/art-director.png"
+                  alt="Art Director"
+                  width={160}
+                  height={36}
+                  className="h-[clamp(22px,2.6vw,34px)] w-auto object-contain block"
+                  priority
+                />
+              </span>{" "}
+              + Graphic Designer creating
+            </span>
+          </HeadingLine>
+          <HeadingLine index={1} isInView={isInView}>
+            concept-led identities, art direction, and digital experiences
+          </HeadingLine>
+          <HeadingLine index={2} isInView={isInView}>
+            by uncovering rather than inventing.
+          </HeadingLine>
+        </div>
 
-        {/* Desktop lines 2 & 3 */}
-        {desktopLines.slice(1).map((text, i) => (
-          <div key={i} className="hidden sm:block">
-            <HeadingLine index={i + 1} isInView={isInView}>{text}</HeadingLine>
-          </div>
-        ))}
-
-        {/* Mobile lines 2, 3 & 4 */}
-        {mobileLines.slice(1).map((text, i) => (
-          <div key={i} className="block sm:hidden">
-            <HeadingLine index={i + 1} isInView={isInView}>{text}</HeadingLine>
-          </div>
-        ))}
+        {/* Mobile Heading (4 lines matching reference image) */}
+        <div className="block sm:hidden flex flex-col gap-0.5">
+          <HeadingLine index={0} isInView={isInView}>
+            <span className="block">
+              Independent{" "}
+              <span className="inline-block align-middle relative -top-0.5 mx-0.5">
+                <Image
+                  src="/assets/art-director.png"
+                  alt="Art Director"
+                  width={160}
+                  height={36}
+                  className="h-[clamp(18px,4.5vw,26px)] w-auto object-contain block inline-block"
+                  priority
+                />
+              </span>{" "}
+              + Graphic Designer
+            </span>
+          </HeadingLine>
+          <HeadingLine index={1} isInView={isInView}>
+            creating concept-led identities, art direction,
+          </HeadingLine>
+          <HeadingLine index={2} isInView={isInView}>
+            and digital experiences by uncovering
+          </HeadingLine>
+          <HeadingLine index={3} isInView={isInView}>
+            rather than inventing.
+          </HeadingLine>
+        </div>
       </div>
 
       {/* Video */}
@@ -120,7 +143,7 @@ export default function AboutSection() {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         className="relative overflow-hidden w-full
-                   h-[calc(100dvh-340px)] min-h-[180px]
+                   h-[220px] xs:h-[260px]
                    sm:aspect-video sm:h-auto sm:max-w-[900px] sm:flex-shrink-0"
       >
         <video

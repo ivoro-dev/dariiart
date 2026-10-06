@@ -92,15 +92,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         }`}
       >
         <div className="flex flex-col items-start max-w-[400px] w-full">
-          <h3 className="relative isolate text-[clamp(28px,4vw,40px)] mt-[40px] font-bold text-black uppercase leading-none tracking-[-0.02em] mb-2 w-fit px-6 py-3">
+          <h3 className="relative isolate text-[clamp(24px,4vw,40px)] mt-4 md:mt-[40px] font-bold text-black uppercase leading-none tracking-[-0.02em] mb-2 w-fit px-4 sm:px-6 py-2 sm:py-3">
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute -left-[10%] -right-[20%] -top-[60%] -bottom-[85%] -z-10 bg-[url('/assets/button.png')] bg-[length:100%_100%] bg-no-repeat opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
+              className="pointer-events-none absolute -left-[4%] -right-[4%] -top-[25%] -bottom-[25%] sm:-left-[10%] sm:-right-[20%] sm:-top-[60%] sm:-bottom-[85%] -z-10 bg-[url('/assets/button.png')] bg-[length:100%_100%] bg-no-repeat opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
             />
             <span className="relative">{project.title}</span>
           </h3>
           
-          <p className="text-[clamp(16px,1.5vw,20px)] font-medium leading-[1.2] text-black mb-2 whitespace-pre-line">
+          <p className="text-[clamp(15px,1.5vw,20px)] font-medium leading-[1.35] text-black mb-2 sm:whitespace-pre-line">
             {project.description}
           </p>
 
@@ -177,7 +177,7 @@ export default function SelectedWorkSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-[#F7F6F4] px-16 pt-[120px] pb-32 box-border max-sm:px-6 max-sm:pt-20 max-sm:pb-24"
+      className="w-full bg-[#f8f7f5] px-4 sm:px-8 md:px-16 pt-6 sm:pt-20 md:pt-[120px] pb-16 sm:pb-24 md:pb-32 box-border"
     >
       <div className="max-w-7xl mx-auto flex flex-col">
         {/* Header Section */}
@@ -210,7 +210,7 @@ export default function SelectedWorkSection() {
               }}
               className="overflow-hidden block"
             >
-              <div className="w-[calc(100vw-48px)] max-w-[620px] sm:w-[720px] sm:max-w-[720px] md:w-[820px] md:max-w-[820px]">
+              <div className="w-full max-w-[620px] sm:max-w-[720px] md:max-w-[820px]">
                 <Image
                   src="/images/project-subtitle.png"
                   alt="Ideas uncovered, Identities shaped, Experiences brought to life."
@@ -224,13 +224,11 @@ export default function SelectedWorkSection() {
           </div>
         </div>
 
-        {/* Projects List (Excludes love-lust so it remains work page only) */}
+        {/* Projects List */}
         <div className="flex flex-col gap-24 md:gap-32">
-          {projects
-            .filter((project) => project.id !== "love-lust")
-            .map((project, i) => (
-              <ProjectCard key={project.id} project={project} index={i} />
-            ))}
+          {projects.map((project, i) => (
+            <ProjectCard key={project.id} project={project} index={i} />
+          ))}
         </div>
 
         {/* View More Link */}

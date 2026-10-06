@@ -57,7 +57,7 @@ export const contactDetailsData: ContactDetailsData = {
     width: 150,
     height: 64,
   },
-  email: "dariart.creative@gmail.com",
+  email: "dariiart.creative@gmail.com",
   phoneLabelImage: {
     src: "/assets/phone.png",
     alt: "Phone",

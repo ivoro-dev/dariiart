@@ -24,14 +24,14 @@ export default function TheShadowBannerSection() {
   return (
     <section
       ref={containerRef}
-      className="w-full bg-white px-6 sm:px-12 md:px-16 py-8 sm:py-12 flex justify-center"
+      className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-8 sm:py-12 flex justify-center"
     >
       <div className="max-w-7xl w-full mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={hasEntered || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full aspect-[16/9] min-h-[350px] sm:min-h-[500px] md:min-h-[620px] bg-black relative overflow-hidden rounded-xs shadow-md"
+          className="w-full aspect-[16/9] min-h-[200px] sm:min-h-[500px] md:min-h-[620px] bg-black relative overflow-hidden rounded-xs shadow-md"
         >
           <iframe
             ref={iframeRef}

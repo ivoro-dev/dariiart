@@ -18,7 +18,7 @@ export default function LoveLustPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#f8f7f5]">
       <LoveLustHeroSection />
       <LoveLustGallerySection />
     </main>

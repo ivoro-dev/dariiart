@@ -13,10 +13,10 @@ export default function LoveLustHeroSection() {
   const quoteText = '"Every shot tells a story."';
 
   return (
-    <section className="w-full min-h-[100dvh] bg-white px-6 sm:px-12 md:px-16 pt-24 sm:pt-28 md:pt-32 pb-16 flex flex-col justify-between box-border">
-      <div className="max-w-7xl mx-auto flex flex-col  justify-center w-full my-auto">
+    <section className="w-full min-h-[100dvh] bg-[#f8f7f5] px-4 sm:px-12 md:px-16 pt-24 sm:pt-28 md:pt-32 pb-16 flex flex-col justify-between box-border">
+      <div className="max-w-7xl mx-auto flex flex-col justify-center w-full my-auto">
         {/* Top Content: Title, Hero Subtitle & Labels (Padded significantly more from left) */}
-        <div className="pl-6 sm:pl-16  md:pl-28 lg:pl-32">
+        <div className="pl-0 sm:pl-12 md:pl-28 lg:pl-32">
           {/* Title */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -36,7 +36,7 @@ export default function LoveLustHeroSection() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
             className="max-w-[700px] mb-8 sm:mb-10"
           >
-            <p className="text-[clamp(18px,2.2vw,28px)] font-semibold text-black leading-[1.25] tracking-tight whitespace-pre-line">
+            <p className="text-[clamp(18px,2.2vw,28px)] font-semibold text-black leading-[1.25] tracking-tight sm:whitespace-pre-line">
               {heroSubtitle}
             </p>
           </motion.div>
@@ -68,7 +68,7 @@ export default function LoveLustHeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.32 }}
             >
-              <p className="text-[clamp(14px,1.45vw,16px)] font-medium text-black/90 leading-[1.2] whitespace-pre-line">
+              <p className="text-[clamp(14px,1.45vw,16px)] font-medium text-black/90 leading-[1.2] sm:whitespace-pre-line">
                 {paragraph1}
               </p>
             </motion.div>
@@ -78,7 +78,7 @@ export default function LoveLustHeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.42 }}
             >
-              <p className="text-[clamp(14px,1.45vw,16px)] font-medium text-black/90 leading-[1.2] whitespace-pre-line">
+              <p className="text-[clamp(14px,1.45vw,16px)] font-medium text-black/90 leading-[1.2] sm:whitespace-pre-line">
                 {paragraph2}
               </p>
             </motion.div>
@@ -89,7 +89,7 @@ export default function LoveLustHeroSection() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.52 }}
-            className="max-w-[360px] ml-[8%] sm:ml-[12%] md:ml-[16%] mt-6"
+            className="max-w-[360px] ml-[4%] sm:ml-[12%] md:ml-[16%] mt-6"
           >
             <p className="text-[clamp(14px,1.4vw,17px)] font-bold text-black leading-[1.25]">
               {quoteText}

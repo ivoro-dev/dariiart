@@ -19,6 +19,29 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "moor-perfume",
+    title: "MOOR PERFUME",
+    description:
+      "A visual identity for The Moor Perfume, transforming a generic perfume shop into an authentic independent fragrance brand.",
+    heroSubtitle:
+      "A visual identity for The Moor Perfume,\ntransforming a generic perfume shop into an\nauthentic independent fragrance brand.",
+    conceptTag: "Concept Development",
+    challengeText:
+      "The identity is centred around a portal-like symbol that represents the meeting point between the external world and the inner self, reinforcing the idea of fragrance as an act of self-discovery.",
+    quoteText:
+      "\"The most personal fragrance isn't\nthe one that changes who you are.\n\nIt's the one that reveals who you've\nalways been.\"",
+    videoUrl: "/images/project-11.mp4",
+    labels: ["ART DIRECTION", "BRAND IDENTITY"],
+    category: "Brand Identity",
+    year: "2024",
+    client: "The Moor Perfume",
+    services: ["Brand Strategy", "Visual Identity", "Art Direction", "Packaging"],
+    image: "/images/project-2-main.png",
+    gallery: [
+      "/images/project-2-main.png",
+    ],
+  },
+  {
     id: "voloshky",
     title: "VOLOSHKY",
     description:
@@ -44,33 +67,10 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "moor-perfume",
-    title: "MOOR PERFUME",
-    description:
-      "A visual identity for The Moor Perfume,\ntransforming a generic perfume shop into\nan authentic independent fragrance brand.",
-    heroSubtitle:
-      "A visual identity for The Moor Perfume,\ntransforming a generic perfume shop into an\nauthentic independent fragrance brand.",
-    conceptTag: "Concept Development",
-    challengeText:
-      "The identity is centred around a portal-like symbol that represents the meeting point between the external world and the inner self, reinforcing the idea of fragrance as an act of self-discovery.",
-    quoteText:
-      "\"The most personal fragrance isn't\nthe one that changes who you are.\n\nIt's the one that reveals who you've\nalways been.\"",
-    videoUrl: "/images/project-11.mp4",
-    labels: ["ART DIRECTION", "BRAND IDENTITY"],
-    category: "Brand Identity",
-    year: "2024",
-    client: "The Moor Perfume",
-    services: ["Brand Strategy", "Visual Identity", "Art Direction", "Packaging"],
-    image: "/images/project-2-main.png",
-    gallery: [
-      "/images/project-2-main.png",
-    ],
-  },
-  {
     id: "the-shadow",
     title: "THE SHADOW",
     description:
-      "The Shadow as an open brief from Studio Yukiko,\nbuilt around the question of what can be carried by\na person without leaving a physical trace.",
+      "The Shadow as an open brief from Studio Yukiko, built around the question of what can be carried by a person without leaving a physical trace.",
     heroSubtitle:
       "The Shadow as an open brief from Studio Yukiko,\nbuilt around the question of what can be carried by\na person without leaving a physical trace.",
     conceptTag: "Concept Development",
@@ -93,7 +93,7 @@ export const projects: Project[] = [
     id: "love-lust",
     title: "LOVE, LUST AND VIOLENCE",
     description:
-      "Helping a photographer sharpen the visual\ndirection for his fine-art exhibition concept.",
+      "Helping a photographer sharpen the visual direction for his fine-art exhibition concept.",
     heroSubtitle:
       "Helping a photographer sharpen the visual direction for his fine-art exhibition concept.",
     challengeText:

@@ -33,7 +33,7 @@ export default function ContactHeroSection() {
   }, []);
 
   return (
-    <section className="w-full  bg-[#F7F6F4] pt-[80px] sm:pt-[100px] lg:pt-[130px] pb-10 md:pb-20 px-5 sm:px-12 lg:px-16 overflow-hidden">
+    <section className="w-full  bg-[#f8f7f5] pt-[80px] sm:pt-[100px] lg:pt-[130px] pb-10 md:pb-20 px-5 sm:px-12 lg:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col items-start">
         {/* Centered heading and subtitle with scroll-driven fade */}
         <motion.div

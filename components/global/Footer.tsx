@@ -7,8 +7,8 @@ import { footerData } from "@/lib/data/footer";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#F7F6F4] border-t border-black/10 py-6 px-6 sm:px-12 md:px-16 box-border">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <footer className="w-full bg-[#f8f7f5] border-t border-black/10 py-6 px-4 sm:px-8 md:px-16 box-border">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-4">
         {/* Left Side — Logo */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
