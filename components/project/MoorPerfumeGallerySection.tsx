@@ -16,8 +16,8 @@ export default function MoorPerfumeGallerySection() {
   }, []);
 
   return (
-    <section className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 pb-16 sm:pb-24 flex flex-col gap-6 sm:gap-10 md:gap-12 justify-center">
-      <div className="max-w-7xl w-full mx-auto flex flex-col gap-6 sm:gap-10 md:gap-12">
+    <section className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 pb-6 sm:pb-24 flex flex-col gap-4 sm:gap-10 md:gap-12 justify-center">
+      <div className="max-w-7xl w-full mx-auto flex flex-col gap-4 sm:gap-10 md:gap-12">
         {/* 1. Main Image */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}

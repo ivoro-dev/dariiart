@@ -49,16 +49,16 @@ function ProjectWorkCard({
       onClick={() => onSelect(project.id, index)}
       className="relative w-full px-8 py-10 xs:px-10 xs:py-12 sm:p-10 md:p-14 mb-10 sm:mb-16 md:mb-24 flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12 cursor-pointer group overflow-hidden sm:overflow-visible"
     >
-      {/* Background: phone-drawing.png on mobile, video-bg.png on desktop */}
+      {/* Background: phone-drawing-new.png on mobile, video-bg.png on desktop */}
       <motion.div
         initial={{ y: "30px", opacity: 0 }}
         animate={isCardActive ? { y: "0px", opacity: 1 } : { y: "30px", opacity: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="absolute inset-[-8px] xs:inset-[-12px] sm:inset-[-18px] md:inset-[-24px] z-0 pointer-events-none"
       >
-        {/* Mobile background frame: phone-drawing-v2.png */}
+        {/* Mobile background frame: phone-drawing-new.png */}
         <Image
-          src="/images/phone-drawing-v2.png"
+          src="/images/phone-drawing-new.png"
           alt="Card background frame"
           fill
           className="block sm:hidden object-fill opacity-95 transition-transform duration-700 ease-out group-hover:scale-[1.015]"

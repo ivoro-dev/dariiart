@@ -24,8 +24,8 @@ export default function ProjectCampaignMotionSection() {
     "The identity extends beyond a logo into a campaign that lives across physical and digital touchpoints. Motion became the central storytelling device, allowing patterns to transform, interact, and evolve as they travel between cultures.";
 
   return (
-    <section className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-12 sm:py-20 flex justify-center">
-      <div className="max-w-7xl w-full mx-auto flex flex-col gap-10 sm:gap-14 md:gap-16">
+    <section className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-6 sm:py-20 flex justify-center">
+      <div className="max-w-7xl w-full mx-auto flex flex-col gap-4 sm:gap-14 md:gap-16">
         {/* 1. Left-aligned top text */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

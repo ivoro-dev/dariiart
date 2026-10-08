@@ -29,9 +29,9 @@ export default function TheShadowProcessSection() {
   return (
     <section
       ref={containerRef}
-      className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-10 sm:py-16 flex flex-col justify-center box-border"
+      className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-6 sm:py-16 flex flex-col justify-center box-border"
     >
-      <div className="max-w-7xl w-full mx-auto flex flex-col gap-12 sm:gap-16 md:gap-20">
+      <div className="max-w-7xl w-full mx-auto flex flex-col gap-6 sm:gap-16 md:gap-20">
         
         {/* 1. Poster Image Centered */}
         <motion.div

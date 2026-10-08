@@ -11,9 +11,9 @@ export default function TheShadowMeetSection() {
   return (
     <section
       ref={containerRef}
-      className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-6 sm:py-12 flex flex-col justify-center box-border"
+      className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-3 sm:py-12 flex flex-col justify-center box-border"
     >
-      <div className="max-w-7xl w-full mx-auto flex flex-col gap-6 sm:gap-10">
+      <div className="max-w-7xl w-full mx-auto flex flex-col gap-4 sm:gap-10">
         {/* Title: Meet The Shadow (Left Aligned Fully) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

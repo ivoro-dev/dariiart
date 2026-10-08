@@ -17,8 +17,8 @@ export default function TheShadowStorySection() {
   });
 
   return (
-    <section className="w-full bg-[#f8f7f5] px-4 sm:px-12 md:px-16 py-6 sm:py-12 flex flex-col justify-center box-border overflow-hidden">
-      <div className="max-w-7xl w-full mx-auto flex flex-col gap-12 sm:gap-24">
+    <section className="w-full bg-[#f8f7f5] px-4 sm:px-12 md:px-16 py-4 sm:py-12 flex flex-col justify-center box-border overflow-hidden">
+      <div className="max-w-7xl w-full mx-auto flex flex-col gap-6 sm:gap-24">
         {/* 1. Upper Text Block (Pic 1) */}
         <div ref={topTextRef} className="flex flex-col w-full">
           {/* Paragraph */}

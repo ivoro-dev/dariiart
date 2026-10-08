@@ -27,7 +27,7 @@ export default function ProjectVideoSection({ project, videoUrl }: ProjectVideoS
   return (
     <section
       ref={containerRef}
-      className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-8 sm:py-16 flex justify-center"
+      className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-4 sm:py-16 flex justify-center"
     >
       <div className="max-w-7xl w-full mx-auto">
         {/* Height-expanding video container */}
@@ -36,7 +36,7 @@ export default function ProjectVideoSection({ project, videoUrl }: ProjectVideoS
           animate={isInView ? { scaleY: 1, opacity: 1 } : { scaleY: 0, opacity: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           style={{ transformOrigin: "center" }}
-          className="w-full relative overflow-hidden bg-neutral-900 h-[50vh] sm:h-[98vh] lg:h-[108vh] min-h-[340px] sm:min-h-[900px] lg:min-h-[1050px] shadow-md"
+          className="w-full relative overflow-hidden bg-neutral-900 h-[32vh] sm:h-[98vh] lg:h-[108vh] min-h-[220px] sm:min-h-[900px] lg:min-h-[1050px] shadow-md"
         >
           <video
             ref={videoRef}

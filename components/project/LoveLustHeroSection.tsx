@@ -13,7 +13,7 @@ export default function LoveLustHeroSection() {
   const quoteText = '"Every shot tells a story."';
 
   return (
-    <section className="w-full min-h-[100dvh] bg-[#f8f7f5] px-4 sm:px-12 md:px-16 pt-24 sm:pt-28 md:pt-32 pb-16 flex flex-col justify-between box-border">
+    <section className="w-full min-h-0 sm:min-h-[100dvh] bg-[#f8f7f5] px-4 sm:px-12 md:px-16 pt-20 sm:pt-28 md:pt-32 pb-6 sm:pb-16 flex flex-col gap-8 sm:gap-0 sm:justify-between box-border">
       <div className="max-w-7xl mx-auto flex flex-col justify-center w-full my-auto">
         {/* Top Content: Title, Hero Subtitle & Labels (Padded significantly more from left) */}
         <div className="pl-0 sm:pl-12 md:pl-28 lg:pl-32">

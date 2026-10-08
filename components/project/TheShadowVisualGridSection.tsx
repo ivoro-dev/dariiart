@@ -17,9 +17,9 @@ export default function TheShadowVisualGridSection() {
   return (
     <section
       ref={containerRef}
-      className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-4 sm:py-6 flex flex-col justify-center box-border"
+      className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-2 sm:py-6 flex flex-col justify-center box-border"
     >
-      <div className="max-w-7xl w-full mx-auto flex flex-col gap-4 sm:gap-8">
+      <div className="max-w-7xl w-full mx-auto flex flex-col gap-2 sm:gap-8">
         {/* 3 Images in a Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full items-start">
           {images.map((img, index) => (

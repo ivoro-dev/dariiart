@@ -37,8 +37,8 @@ export default function ProjectFlagPatternsSection() {
     "The movement of national flags was translated into abstract graphic patterns, creating a visual language that adapts to each country while remaining part of one cohesive identity system.";
 
   return (
-    <section className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-12 sm:py-20 flex justify-center">
-      <div className="max-w-7xl w-full mx-auto flex flex-col gap-8 sm:gap-12 md:gap-14">
+    <section className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-6 sm:py-20 flex justify-center">
+      <div className="max-w-7xl w-full mx-auto flex flex-col gap-4 sm:gap-12 md:gap-14">
         {/* Top Left Text */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

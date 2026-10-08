@@ -24,7 +24,7 @@ export default function TheShadowBannerSection() {
   return (
     <section
       ref={containerRef}
-      className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-8 sm:py-12 flex justify-center"
+      className="w-full bg-[#f8f7f5] px-6 sm:px-12 md:px-16 py-4 sm:py-12 flex justify-center"
     >
       <div className="max-w-7xl w-full mx-auto">
         <motion.div
